@@ -1,0 +1,203 @@
+//
+//  MyPhotoesViewController.m
+//  SocialSelfie
+//
+//  Created by Saad Khan on 27/10/2014.
+//  Copyright (c) 2014 SocialSelfie. All rights reserved.
+//
+
+#import "MyPhotoesViewController.h"
+#import "HMSegmentedControl.h"
+#import "AFNetworking.h"
+#import "MBProgressHUD.h"
+#import "Constants.h"
+#import "UtilsFunctions.h"
+#import "MyPhotoesPic.h"
+#import "CommentsViewController.h"
+
+@interface MyPhotoesViewController ()
+{
+    NSMutableArray * mainArray;
+    SharePopUpView * sharePopUpView;
+    BOOL isSharePopUpViewPresent;
+}
+@end
+
+@implementation MyPhotoesViewController
+
+- (id)init
+{
+    self = [super initWithNibName:@"MyPhotoesViewController" bundle:Nil];
+    if (self) {
+        mainArray=[[NSMutableArray alloc]init];
+        sharePopUpView=[[SharePopUpView alloc]init];
+        sharePopUpView.frame=CGRectMake(0, self.view.frame.size.height-130-100,sharePopUpView.frame.size.width, sharePopUpView.frame.size.height);
+        sharePopUpView.delegate=self;
+        isSharePopUpViewPresent=NO;
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self addSegmentBarToViewNew];
+    [self getMyPhotosWebservice];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark: UITableView Delegates and Datasource methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [mainArray count];
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 78;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier=@"photoCell";
+    
+    
+    MyPhotoCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        NSArray * nibArray = [[NSBundle mainBundle] loadNibNamed:@"MyPhotoCell" owner:nil options:nil];
+        cell = (MyPhotoCell*)[nibArray objectAtIndex:0];
+    }
+    [cell loadDataWithImageURL:[mainArray objectAtIndex:indexPath.row]];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.delegate=self;
+    return cell;
+}
+#pragma mark:MyPhotoCellDelegate
+-(void)gotoCommentsDetailForPhotoID:(NSString *)photoID{
+    CommentsViewController * commentVC=[[CommentsViewController alloc]initWithImageID:photoID];
+    [self.navigationController pushViewController:commentVC animated:YES];
+}
+-(void)gotoShareForPhotoID:(NSString *)photoID{
+    if (!isSharePopUpViewPresent) {
+        isSharePopUpViewPresent=YES;
+        [self.view addSubview:sharePopUpView];
+    }
+    else{
+        isSharePopUpViewPresent=NO;
+        [sharePopUpView removeFromSuperview];
+    }
+}
+-(void)gotoLikesDetailForPhotoID:(NSString *)photoID{
+    
+}
+#pragma mark:SharePopUpViewDelegate
+-(void)shareFBButtonHasBeenPressed{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewController *fbPostSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [fbPostSheet setInitialText:@"This is a Facebook post!"];
+        
+        [self presentViewController:fbPostSheet animated:YES completion:nil];
+    } else
+    {
+        ShowMessage(kAppName, @"You can't post right now, make sure your device has an internet connection and you have at least one facebook account setup");
+    }
+}
+-(void)shareTWButtonHasBeenPressed{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"This is a tweet!"];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+        
+    }
+    else
+    {
+        ShowMessage(kAppName, @"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup");
+    }
+    
+}
+
+-(void)closeSharePopUpViewButtonHasBeenPressed{
+    isSharePopUpViewPresent=NO;
+    [sharePopUpView removeFromSuperview];
+}
+
+#pragma mark:Custom Methods
+-(void)addSegmentBarToViewNew{
+    HMSegmentedControl *tempSegmentControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(7, 64 ,306, 36)];
+    
+    [tempSegmentControl setSectionImages:@[[UIImage imageNamed:@"recent_btn"],[UIImage imageNamed:@"yesterday_btn"],[UIImage imageNamed:@"all_btn"]]];
+    
+    [tempSegmentControl setSectionSelectedImages:@[[UIImage imageNamed:@"recent_btn_pressed"], [UIImage imageNamed:@"yesterday_btn_pressed"],[UIImage imageNamed:@"all_btn_pressed"]]];
+    
+    [tempSegmentControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    
+    tempSegmentControl.type = HMSegmentedControlTypeImages;
+    
+    [tempSegmentControl setSelectedSegmentIndex:0];
+    
+    
+    [tempSegmentControl setBackgroundColor:[UIColor clearColor]];
+    
+    [tempSegmentControl setSelectionIndicatorColor:[UIColor clearColor]];
+    
+    [tempSegmentControl setSelectionStyle:HMSegmentedControlSelectionStyleBox];
+    
+    [tempSegmentControl setSelectionLocation:HMSegmentedControlSelectionLocationUp];
+    
+    [self.view addSubview:tempSegmentControl];
+}
+#pragma mark-Selectors
+- (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
+    NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
+}
+
+- (IBAction)backBtnAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark:Webservices
+-(void)getMyPhotosWebservice{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];.
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:kTaskGetUserImage forKey:kTask];
+    if (GetStringWithKey(kUserID)) {
+        [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager POST:kBaseURLImages parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if ([[responseObject valueForKey:@"statusCode"]integerValue]==11001){
+            ShowMessage(kAppName,@"No record found against your request.");
+        }
+        else if([[responseObject valueForKey:@"statusCode"]integerValue]==11000){
+            NSArray * array=[responseObject valueForKey:kValue];
+            [mainArray removeAllObjects];
+            for (NSDictionary * dict in array) {
+                MyPhotoesPic * imgData=[[MyPhotoesPic alloc]initWithDictionary:dict];
+                [mainArray addObject:imgData];
+            }
+            [self.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"Error: %@", error);
+    }];
+    
+}
+
+@end

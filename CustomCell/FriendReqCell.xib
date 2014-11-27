@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendReqCell" rowHeight="58" id="8Kd-9v-upm" customClass="FriendReqCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Kd-9v-upm" id="hwv-Pj-ER4">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture_comments.png" id="eW0-4g-0eF" userLabel="Image View - picture_frame">
+                        <rect key="frame" x="14" y="9" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture_comments.png" id="YUp-km-kZD">
+                        <rect key="frame" x="15" y="10" width="38" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cjv-yy-P5c" userLabel="Button-acpt">
+                        <rect key="frame" x="152" y="9" width="82" height="39"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="accept_btn.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" image="like_icon_hover.png"/>
+                        <connections>
+                            <action selector="acceptAction:" destination="8Kd-9v-upm" eventType="touchUpInside" id="ImG-WF-fF6"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EUO-Yl-ITl" userLabel="Button-rej">
+                        <rect key="frame" x="235" y="9" width="75" height="39"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="reject_btn.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" image="commentes_icon_hover.png"/>
+                        <connections>
+                            <action selector="rejectAction:" destination="8Kd-9v-upm" eventType="touchUpInside" id="GqR-L2-s9q"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="EfH-Ga-Lch" userLabel="Label - Name">
+                        <rect key="frame" x="61" y="18" width="83" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="acceptBtn" destination="cjv-yy-P5c" id="NiG-Nu-gHa"/>
+                <outlet property="nameLbl" destination="EfH-Ga-Lch" id="bhx-vw-Sn3"/>
+                <outlet property="rejectBtn" destination="EUO-Yl-ITl" id="dYj-0d-CuP"/>
+                <outlet property="userImgV" destination="YUp-km-kZD" id="uxB-24-5iM"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="accept_btn.png" width="73" height="22"/>
+        <image name="commentes_icon_hover.png" width="42" height="39"/>
+        <image name="like_icon_hover.png" width="42" height="39"/>
+        <image name="picture_comments.png" width="40" height="40"/>
+        <image name="reject_btn.png" width="73" height="22"/>
+    </resources>
+</document>
