@@ -21,10 +21,11 @@
 }
 -(void)facebookAccountInit
 {
-    self.accountStore = [[ACAccountStore alloc]init];
+    if (!self.accountStore) {
+        self.accountStore = [[ACAccountStore alloc]init];
+    }
     ACAccountType *FBaccountType= [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
-//    NSString *key = @"863835213651468";//@"346154628857429";
     NSDictionary *dictFB = [NSDictionary dictionaryWithObjectsAndKeys:fbAccountkey,ACFacebookAppIdKey,@[@"email"],ACFacebookPermissionsKey, nil];
     
     [self.accountStore requestAccessToAccountsWithType:FBaccountType options:dictFB completion:
@@ -38,7 +39,8 @@
              NSString *accessToken = [facebookCredential oauthToken];
              NSLog(@"Facebook Access Token: %@", accessToken);
              NSLog(@"facebook account =%@",self.facebookAccount);
-             [self getMyFBInfo];
+             [self performSelectorOnMainThread:@selector(getMyFBInfo) withObject:nil waitUntilDone:NO];
+             //             [self getMyFBInfo];
          }
          else
          {
@@ -49,6 +51,12 @@
 }
 -(void)callDelegateFailedToFetchAnyAccount{
     [delegate failedToFetchAnyAccount];
+}
+-(void)callDelegateProfileHasBeenFetchedSuccessfullyWithInfo:(FBUserSelf *)fbUser{
+    [delegate fbProfileHasBeenFetchedSuccessfullyWithInfo:fbUser];
+}
+-(void)callDelegatefbProfileDidNotFetched{
+    [delegate fbProfileDidNotFetched];
 }
 -(void)getMyFBInfo
 {
@@ -63,29 +71,17 @@
         
         if(!error)
         {
-            
             NSDictionary *list =[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             FBUserSelf * fbUser=[[FBUserSelf alloc]initWithDictionary:list];
-            [delegate fbProfileHasBeenFetchedSuccessfullyWithInfo:fbUser];
+            [self performSelectorOnMainThread:@selector(callDelegateProfileHasBeenFetchedSuccessfullyWithInfo:) withObject:fbUser waitUntilDone:NO];
         }
         else
         {
             NSLog(@"error from get%@",error);
-            [delegate fbProfileDidNotFetched];
+            [self performSelectorOnMainThread:@selector(callDelegatefbProfileDidNotFetched) withObject:nil waitUntilDone:NO];
         }
         
     }];
-    
-    self.accountStore = [[ACAccountStore alloc]init];
-    ACAccountType *FBaccountType= [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
-    
-    NSString *key = @"1519738301583859";
-    NSDictionary *dictFB = [NSDictionary dictionaryWithObjectsAndKeys:key,ACFacebookAppIdKey,@[@"friends_videos"],ACFacebookPermissionsKey, nil];
-    
-    
-    [self.accountStore requestAccessToAccountsWithType:FBaccountType options:dictFB completion:
-     ^(BOOL granted, NSError *e) {}];
-    
 }
 
 @end
