@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet AFImagePager *imagePager;
 
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLbl;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 
 - (IBAction)goToPhotosAction:(id)sender;
 - (IBAction)backAction:(id)sender;

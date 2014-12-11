@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MensGalleryViewController">
             <connections>
                 <outlet property="imagePager" destination="0gD-ks-F5C" id="Lz3-Pr-2fl"/>
+                <outlet property="likeBtn" destination="eH8-tE-nKK" id="4h2-Hc-M0D"/>
                 <outlet property="likeCountLbl" destination="Ttc-vW-1kK" id="vwn-MN-SIV"/>
                 <outlet property="userNameLbl" destination="pHS-Q7-jvo" id="ThS-gc-AMg"/>
                 <outlet property="userPicImgView" destination="Pps-13-5dh" id="Hbo-ts-DsB"/>
@@ -112,6 +113,7 @@
                             <state key="normal" image="like_icon.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" image="like_icon_hover.png"/>
                             <state key="highlighted" image="like_icon_hover.png"/>
                             <connections>
                                 <action selector="goToLikeAction:" destination="-1" eventType="touchUpInside" id="nRE-2V-3La"/>
