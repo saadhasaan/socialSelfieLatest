@@ -165,7 +165,7 @@
         [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
     }
     
-    [params setObject:kTaskGetAllMaleImages forKey:kTask];
+    [params setObject:kTaskGetAllFemaleImages forKey:kTask];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [manager POST:kBaseURLImages parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

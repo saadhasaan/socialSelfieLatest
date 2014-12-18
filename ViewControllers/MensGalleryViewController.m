@@ -55,7 +55,10 @@
     currentIndex=0;
 
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.likeBtn setSelected:NO];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -150,6 +153,7 @@
 }
 
 - (IBAction)goToLikeAction:(id)sender {
+    [self.likeBtn setSelected:YES];
     [self likePhotoWebservice];
 }
 
