@@ -20,7 +20,7 @@
 @interface TWLogin : NSObject
 
 @property (weak, nonatomic) id<TWLoginDelegate> delegate;
-
+-(void)fetchTWData;
 @end
 
 

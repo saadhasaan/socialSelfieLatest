@@ -11,6 +11,8 @@
 
 @interface FriendsReqViewController : UIViewController<FriendReqCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 - (IBAction)backBtnAction:(id)sender;
+- (IBAction)segmentedControlChangedValue:(UISegmentedControl *)segmentedControl ;
 @end

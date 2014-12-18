@@ -40,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self addSegmentBarToViewNew];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self getMyPhotosWebservice];
     showRec=YES;
 }
@@ -51,30 +51,30 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark:Custom Methods
--(void)addSegmentBarToViewNew{
-    HMSegmentedControl *tempSegmentControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(5, 64 ,310, 36)];
-    
-    [tempSegmentControl setSectionImages:@[[UIImage imageNamed:@"recieve_requests"],[UIImage imageNamed:@"send_requests"]]];
-    
-    [tempSegmentControl setSectionSelectedImages:@[[UIImage imageNamed:@"recieve_requests_pressed"], [UIImage imageNamed:@"send_requests_pressed"]]];
-    
-    [tempSegmentControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-    
-    tempSegmentControl.type = HMSegmentedControlTypeImages;
-    
-    [tempSegmentControl setSelectedSegmentIndex:0];
-    
-    
-    [tempSegmentControl setBackgroundColor:[UIColor clearColor]];
-    
-    [tempSegmentControl setSelectionIndicatorColor:[UIColor clearColor]];
-    
-    [tempSegmentControl setSelectionStyle:HMSegmentedControlSelectionStyleBox];
-    
-    [tempSegmentControl setSelectionLocation:HMSegmentedControlSelectionLocationUp];
-    
-    [self.view addSubview:tempSegmentControl];
-}
+//-(void)addSegmentBarToViewNew{
+//    HMSegmentedControl *tempSegmentControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(5, 64 ,310, 36)];
+//    
+//    [tempSegmentControl setSectionImages:@[[UIImage imageNamed:@"recieve_requests"],[UIImage imageNamed:@"send_requests"]]];
+//    
+//    [tempSegmentControl setSectionSelectedImages:@[[UIImage imageNamed:@"recieve_requests_pressed"], [UIImage imageNamed:@"send_requests_pressed"]]];
+//    
+//    [tempSegmentControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+//    
+//    tempSegmentControl.type = HMSegmentedControlTypeImages;
+//    
+//    [tempSegmentControl setSelectedSegmentIndex:0];
+//    
+//    
+//    [tempSegmentControl setBackgroundColor:[UIColor clearColor]];
+//    
+//    [tempSegmentControl setSelectionIndicatorColor:[UIColor clearColor]];
+//    
+//    [tempSegmentControl setSelectionStyle:HMSegmentedControlSelectionStyleBox];
+//    
+//    [tempSegmentControl setSelectionLocation:HMSegmentedControlSelectionLocationUp];
+//    
+//    [self.view addSubview:tempSegmentControl];
+//}
 #pragma mark: UITableView Delegates and Datasource methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -125,7 +125,7 @@
     }
 }
 #pragma mark-Selectors
-- (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
+- (IBAction)segmentedControlChangedValue:(UISegmentedControl *)segmentedControl {
     NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
     NSInteger index=segmentedControl.selectedSegmentIndex;
     if (index==0) {

@@ -244,6 +244,15 @@
 		55DF91EA19FEF06300DB21DB /* TNRadioButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91DE19FEF06300DB21DB /* TNRadioButtonGroup.m */; };
 		55DF91EB19FEF06300DB21DB /* TNRectangularRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91E119FEF06300DB21DB /* TNRectangularRadioButton.m */; };
 		55DF91EC19FEF06300DB21DB /* TNRectangularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91E319FEF06300DB21DB /* TNRectangularRadioButtonData.m */; };
+		790E147B1A42F4C900236DDB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790E14791A42F4C900236DDB /* SettingsViewController.m */; };
+		790E147C1A42F4C900236DDB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790E147A1A42F4C900236DDB /* SettingsViewController.xib */; };
+		790E14851A42F53300236DDB /* check_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E147E1A42F53300236DDB /* check_icon_large.png */; };
+		790E14861A42F53300236DDB /* check_icon_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E147F1A42F53300236DDB /* check_icon_small@2x.png */; };
+		790E14871A42F53300236DDB /* friend_request_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14801A42F53300236DDB /* friend_request_icon@2x.png */; };
+		790E14881A42F53300236DDB /* notify_bell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14811A42F53300236DDB /* notify_bell@2x.png */; };
+		790E14891A42F53300236DDB /* twitter_facebook_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14821A42F53300236DDB /* twitter_facebook_icon@2x.png */; };
+		790E148A1A42F53300236DDB /* uncheck_icon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14831A42F53300236DDB /* uncheck_icon_large@2x.png */; };
+		790E148B1A42F53300236DDB /* uncheck_icon_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14841A42F53300236DDB /* uncheck_icon_small@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -598,6 +607,16 @@
 		55DF91E119FEF06300DB21DB /* TNRectangularRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButton.m; sourceTree = "<group>"; };
 		55DF91E219FEF06300DB21DB /* TNRectangularRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularRadioButtonData.h; sourceTree = "<group>"; };
 		55DF91E319FEF06300DB21DB /* TNRectangularRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButtonData.m; sourceTree = "<group>"; };
+		790E14781A42F4C900236DDB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		790E14791A42F4C900236DDB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		790E147A1A42F4C900236DDB /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		790E147E1A42F53300236DDB /* check_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_icon_large.png; sourceTree = "<group>"; };
+		790E147F1A42F53300236DDB /* check_icon_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_icon_small@2x.png"; sourceTree = "<group>"; };
+		790E14801A42F53300236DDB /* friend_request_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_request_icon@2x.png"; sourceTree = "<group>"; };
+		790E14811A42F53300236DDB /* notify_bell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notify_bell@2x.png"; sourceTree = "<group>"; };
+		790E14821A42F53300236DDB /* twitter_facebook_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_facebook_icon@2x.png"; sourceTree = "<group>"; };
+		790E14831A42F53300236DDB /* uncheck_icon_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck_icon_large@2x.png"; sourceTree = "<group>"; };
+		790E14841A42F53300236DDB /* uncheck_icon_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck_icon_small@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1232,6 +1251,9 @@
 				556DCF481A175AE8006F9977 /* FriendsReqViewController.h */,
 				556DCF491A175AE8006F9977 /* FriendsReqViewController.m */,
 				556DCF4A1A175AE8006F9977 /* FriendsReqViewController.xib */,
+				790E14781A42F4C900236DDB /* SettingsViewController.h */,
+				790E14791A42F4C900236DDB /* SettingsViewController.m */,
+				790E147A1A42F4C900236DDB /* SettingsViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1240,6 +1262,7 @@
 			isa = PBXGroup;
 			children = (
 				556DCF641A17687E006F9977 /* parallax_avatar@2x.png */,
+				790E147D1A42F53300236DDB /* settings */,
 				556DCF4D1A175DBB006F9977 /* friendRequest */,
 				553A02FE1A15473800A6894A /* profile */,
 				55682FE21A0173E6000F1142 /* uploadphotos */,
@@ -1370,6 +1393,20 @@
 			path = TNRadioButtonGroup;
 			sourceTree = "<group>";
 		};
+		790E147D1A42F53300236DDB /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				790E147E1A42F53300236DDB /* check_icon_large.png */,
+				790E147F1A42F53300236DDB /* check_icon_small@2x.png */,
+				790E14801A42F53300236DDB /* friend_request_icon@2x.png */,
+				790E14811A42F53300236DDB /* notify_bell@2x.png */,
+				790E14821A42F53300236DDB /* twitter_facebook_icon@2x.png */,
+				790E14831A42F53300236DDB /* uncheck_icon_large@2x.png */,
+				790E14841A42F53300236DDB /* uncheck_icon_small@2x.png */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1464,6 +1501,7 @@
 				55DF919419FEDC3500DB21DB /* shear_icon@2x.png in Resources */,
 				55883D7619B232680037D145 /* SignupViewController.xib in Resources */,
 				553A02F31A15388300A6894A /* MyProfileViewController.xib in Resources */,
+				790E14891A42F53300236DDB /* twitter_facebook_icon@2x.png in Resources */,
 				55883D5C19B22D0B0037D145 /* background-login.png in Resources */,
 				55DF91BE19FEE42600DB21DB /* devider@2x.png in Resources */,
 				555A4B471A0935EB002F1A3C /* share_btn_background@2x.png in Resources */,
@@ -1487,6 +1525,7 @@
 				55DF918D19FEDC3500DB21DB /* commentes_icon@2x.png in Resources */,
 				556FCFF21A02D6B200634508 /* KICamera.png in Resources */,
 				553A03181A15473800A6894A /* status_online@2x.png in Resources */,
+				790E14871A42F53300236DDB /* friend_request_icon@2x.png in Resources */,
 				55DF917B19FED60500DB21DB /* right_icon@2x.png in Resources */,
 				55CEFC9A19A8ACE50092CA6F /* egopv_fullscreen_button.png in Resources */,
 				553A03151A15473800A6894A /* status_bussy@2x.png in Resources */,
@@ -1494,6 +1533,7 @@
 				55DF917819FED60500DB21DB /* my_alerts_icon@2x.png in Resources */,
 				55BBE54B1A0FE2A600C64AB3 /* WoMensGalleryViewController.xib in Resources */,
 				55DF917419FED60500DB21DB /* alerts_number_bg@2x.png in Resources */,
+				790E14881A42F53300236DDB /* notify_bell@2x.png in Resources */,
 				55693BD519F1C04000106D17 /* HomeCollectionCell.xib in Resources */,
 				556DCF601A175FE7006F9977 /* FriendReqCell.xib in Resources */,
 				55DF917A19FED60500DB21DB /* my_profile@2x.png in Resources */,
@@ -1528,6 +1568,7 @@
 				55CEFC9E19A8ACE50092CA6F /* egopv_minimize_fullscreen_button.png in Resources */,
 				55682FD71A001A34000F1142 /* facebook_button@2x.png in Resources */,
 				55DF917C19FED60500DB21DB /* settings_icon@2x.png in Resources */,
+				790E147C1A42F4C900236DDB /* SettingsViewController.xib in Resources */,
 				55CEFBD019A8ABF00092CA6F /* Images.xcassets in Resources */,
 				55DF919D19FEDE5400DB21DB /* picture_comments@2x.png in Resources */,
 				55CEFCC019A8CFDF0092CA6F /* wibiz.png in Resources */,
@@ -1538,9 +1579,12 @@
 				55693BF219F1D15100106D17 /* CommentCell.xib in Resources */,
 				55682FD61A001A34000F1142 /* background@2x.png in Resources */,
 				555A4B4B1A0935EB002F1A3C /* twitter_share_btn@2x.png in Resources */,
+				790E148A1A42F53300236DDB /* uncheck_icon_large@2x.png in Resources */,
 				55682FDC1A001A34000F1142 /* twitter_button@2x.png in Resources */,
 				55DF91A519FEE1B800DB21DB /* MyPhotoesViewController.xib in Resources */,
 				553A030D1A15473800A6894A /* profile_background@2x.png in Resources */,
+				790E14851A42F53300236DDB /* check_icon_large.png in Resources */,
+				790E14861A42F53300236DDB /* check_icon_small@2x.png in Resources */,
 				55CEFC7A19A8ACE50092CA6F /* ActionSheetPickerViewController-iPad.xib in Resources */,
 				55693BCF19F1BE8C00106D17 /* HomeViewController.xib in Resources */,
 				55DF91BC19FEE42600DB21DB /* back_arrow@2x.png in Resources */,
@@ -1566,6 +1610,7 @@
 				556DCF581A175DBB006F9977 /* recieve_requests_pressed@2x.png in Resources */,
 				55DF917F19FED60500DB21DB /* womens_gallery_icon@2x.png in Resources */,
 				553A03131A15473800A6894A /* profile_my_photos@2x.png in Resources */,
+				790E148B1A42F53300236DDB /* uncheck_icon_small@2x.png in Resources */,
 				555A4B211A091162002F1A3C /* MainLoginViewController.xib in Resources */,
 				555A4B261A0917F3002F1A3C /* LoginViewController.xib in Resources */,
 				556FCFF31A02D6B200634508 /* KICamera@2x.png in Resources */,
@@ -1685,6 +1730,7 @@
 				556DCF5E1A175FCF006F9977 /* FriendReqCell.m in Sources */,
 				55CEFC8B19A8ACE50092CA6F /* UIAlertView+AFNetworking.m in Sources */,
 				55CEFCA319A8ACE50092CA6F /* EGOPhotoCaptionView.m in Sources */,
+				790E147B1A42F4C900236DDB /* SettingsViewController.m in Sources */,
 				55DF91EC19FEF06300DB21DB /* TNRectangularRadioButtonData.m in Sources */,
 				55CEFCA919A8ACE50092CA6F /* NSString+SBJSON.m in Sources */,
 				555A4B1C1A090653002F1A3C /* FBUserSelf.m in Sources */,
