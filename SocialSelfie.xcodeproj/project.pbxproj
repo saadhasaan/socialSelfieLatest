@@ -1813,7 +1813,7 @@
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a735a0d0-497c-4509-9a7a-c921b9fbfb1b";
+				PROVISIONING_PROFILE = "15892f21-7d61-45ea-9f0e-3d9564def0bd";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1828,7 +1828,7 @@
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a735a0d0-497c-4509-9a7a-c921b9fbfb1b";
+				PROVISIONING_PROFILE = "15892f21-7d61-45ea-9f0e-3d9564def0bd";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

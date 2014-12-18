@@ -16,6 +16,7 @@
 #define facebookKey @"1492084591036761"
 @interface MainLoginViewController (){
     FBLogin * fbLogin;
+    TWLogin * twLogin;
 }
 
 @end
@@ -48,6 +49,7 @@
 #pragma mark:FBLoginDelegate
 -(void)failedToFetchAnyAccount{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    ShowMessage(kAppName, @"Failed to fetch any Facebook account");
 }
 -(void)fbProfileHasBeenFetchedSuccessfullyWithInfo:(FBUserSelf *)fbUser{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
@@ -71,6 +73,37 @@
 }
 -(void)fbProfileDidNotFetched{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    ShowMessage(kAppName, @"Failed to fetch any Facebook profile");
+}
+#pragma mark: TWLoginDelegate
+-(void)failedToFetchAnyTWAccount{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    ShowMessage(kAppName, @"Failed to fetch any Twitter account");
+}
+-(void)twProfileHasBeenFetchedSuccessfullyWithInfo:(FBUserSelf *)fbUser{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    [self twitterLoginWebserviceWithFBUser:fbUser];
+    //Save data in user default
+    if (fbUser.email) {
+        SaveStringWithKey(fbUser.email, kUserName);
+    }
+    if (fbUser.profileImageURL) {
+        SaveStringWithKey(fbUser.profileImageURL, kProfileImage);
+    }
+    if(fbUser.userName){
+        SaveStringWithKey(fbUser.firstName, kName);
+    }
+    if (fbUser.gender) {
+        SaveStringWithKey(fbUser.gender, kGender);
+    }
+    if (fbUser.email) {
+        SaveStringWithKey(fbUser.email, kEmail);
+    }
+
+}
+-(void)twProfileDidNotFetched{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    ShowMessage(kAppName, @"Failed to fetch any Twitter profile");
 }
 #pragma mark:IBActions and Selectors
 -(void)goToHomeScreenAfterSuccessfulLogin{
@@ -89,6 +122,14 @@
 }
 
 - (IBAction)twitterBtnPressed:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if (!twLogin) {
+        twLogin=[[TWLogin alloc]init];
+    }
+    else{
+        [twLogin fetchTWData];
+    }
+    twLogin.delegate=self;
 }
 
 - (IBAction)socialSelfieLoginBtnPressed:(id)sender {
@@ -109,8 +150,18 @@
     
     [params setObject:fbUser.firstName forKey:kName];
     [params setObject:fbUser.fbiD forKey:kFBID];
-    [params setObject:fbUser.gender forKey:kGender];
-    [params setObject:fbUser.email forKey:kEmail];
+    if (fbUser.gender) {
+        [params setObject:fbUser.gender forKey:kGender];
+    }
+    else{
+        [params setObject:@"Female" forKey:kGender];
+    }
+    if (fbUser.email) {
+        [params setObject:fbUser.email forKey:kEmail];
+    }
+    else{
+        [params setObject:@"NP" forKey:kEmail];
+    }
     [params setObject:fbUser.profileImageURL forKey:kFacebookImage];
 
     if (GetStringWithKey(kDeviceType)) {
@@ -141,4 +192,54 @@
         NSLog(@"Error: %@", error);
     }];
 }
+-(void)twitterLoginWebserviceWithFBUser:(FBUserSelf * )fbUser{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:fbUser.userName forKey:kName];
+    [params setObject:fbUser.fbiD forKey:kTwitterID];
+    if (fbUser.gender) {
+        [params setObject:fbUser.gender forKey:kGender];
+    }
+    else{
+        [params setObject:@"Female" forKey:kGender];
+    }
+    if (fbUser.email) {
+        [params setObject:fbUser.email forKey:kEmail];
+    }
+    else{
+        [params setObject:@"NP" forKey:kEmail];
+    }
+    [params setObject:fbUser.profileImageURL forKey:kTwitterImage];
+    SaveStringWithKey(fbUser.profileImageURL, kProfileImage);
+    if (GetStringWithKey(kDeviceType)) {
+        [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
+    }
+    if (GetStringWithKey(kDeviceID)) {
+        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
+    }
+    [params setObject:kTaskTWLogin forKey:kTask];
+    [params setObject:@"NP" forKey:kCountry];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager POST:kBaseURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if([[responseObject valueForKey:@"statusCode"]integerValue]==4000){
+            NSDictionary * valueDict=[responseObject valueForKey:kValue];
+            if ([valueDict valueForKey:kTwitterImage] && ![[valueDict valueForKey:kTwitterImage]isEqual:[NSNull null]]) {
+                SaveStringWithKey([valueDict valueForKey:kTwitterImage], kProfileImage);
+            }
+            if ([valueDict valueForKey:kUserID] && ![[valueDict valueForKey:kUserID]isEqual:[NSNull null]]) {
+                SaveStringWithKey([valueDict valueForKey:kUserID], kUserID);
+            }
+            SaveStringWithKey(@"YES", kIsLoggedIn);
+            [self performSelectorOnMainThread:@selector(goToHomeScreenAfterSuccessfulLogin) withObject:nil waitUntilDone:NO];
+        }
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 @end

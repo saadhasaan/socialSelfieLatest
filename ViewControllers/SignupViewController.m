@@ -52,6 +52,7 @@
 }
 #pragma mark:Selector Methods
 -(void)goToHomeAfterSuccessfulLogin{
+    ShowMessage(kAppName, @"You have signed up successfuly");
     HomeViewController * homeVC=[[HomeViewController alloc]init];
     [self.navigationController pushViewController:homeVC animated:YES];
 }

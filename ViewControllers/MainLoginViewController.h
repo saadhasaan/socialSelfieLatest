@@ -12,8 +12,9 @@
 #import "MBProgressHUD.h"
 #import "FBLogin.h"
 #import "FBUserSelf.h"
+#import "TWLogin.h"
 
-@interface MainLoginViewController : UIViewController<FBLoginDelegate>
+@interface MainLoginViewController : UIViewController<FBLoginDelegate,TWLoginDelegate>
 
 - (IBAction)facebookBtnAction:(id)sender;
 - (IBAction)twitterBtnPressed:(id)sender;
