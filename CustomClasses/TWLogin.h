@@ -20,7 +20,8 @@
 @interface TWLogin : NSObject
 
 @property (weak, nonatomic) id<TWLoginDelegate> delegate;
+
+@property (strong, nonatomic) ACAccountStore *accountStore;
+
 -(void)fetchTWData;
 @end
-
-

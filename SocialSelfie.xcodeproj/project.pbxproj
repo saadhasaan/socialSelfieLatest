@@ -1459,6 +1459,7 @@
 						DevelopmentTeam = 28HPMVWS4U;
 					};
 					55CEFBD419A8ABF00092CA6F = {
+						DevelopmentTeam = 28HPMVWS4U;
 						TestTargetID = 55CEFBB919A8ABF00092CA6F;
 					};
 				};
@@ -1883,6 +1884,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SocialSelfie.app/SocialSelfie";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1896,6 +1899,7 @@
 				);
 				INFOPLIST_FILE = "SocialSelfieTests/SocialSelfieTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1905,6 +1909,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SocialSelfie.app/SocialSelfie";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1914,6 +1920,7 @@
 				GCC_PREFIX_HEADER = "SocialSelfie/SocialSelfie-Prefix.pch";
 				INFOPLIST_FILE = "SocialSelfieTests/SocialSelfieTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
