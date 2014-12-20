@@ -12,12 +12,14 @@
 #import "UtilsFunctions.h"
 #import "MBProgressHUD.h"
 #import "HomeViewController.h"
+#import "SocialSelfieAppDelegate.h"
 
 @interface SignupViewController ()
 {
     BOOL isFemalePressed;
     BOOL isMalePressed;
     BOOL isTermsPressed;
+    SocialSelfieAppDelegate * appDelegate;
 }
 @end
 
@@ -33,6 +35,7 @@
         isFemalePressed=NO;
         isMalePressed=YES;
         isTermsPressed=YES;
+        appDelegate=(SocialSelfieAppDelegate *)[UIApplication sharedApplication].delegate;
     }
     return self;
 }
@@ -52,6 +55,7 @@
 }
 #pragma mark:Selector Methods
 -(void)goToHomeAfterSuccessfulLogin{
+    [appDelegate updateDeviceTokenForPush];
     ShowMessage(kAppName, @"You have signed up successfuly");
     HomeViewController * homeVC=[[HomeViewController alloc]init];
     [self.navigationController pushViewController:homeVC animated:YES];
@@ -221,5 +225,4 @@
         NSLog(@"Error: %@", error);
     }];
 }
-
 @end

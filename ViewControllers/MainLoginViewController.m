@@ -12,11 +12,13 @@
 #import "Constants.h"
 #import "AFNetworking.h"
 #import "HomeViewController.h"
+#import "SocialSelfieAppDelegate.h"
 
 #define facebookKey @"1492084591036761"
 @interface MainLoginViewController (){
     FBLogin * fbLogin;
     TWLogin * twLogin;
+    SocialSelfieAppDelegate * appDelegate;
 }
 
 @end
@@ -27,7 +29,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        appDelegate=(SocialSelfieAppDelegate*)[UIApplication sharedApplication].delegate;
     }
     return self;
 }
@@ -37,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    SaveStringWithKey([[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString],kDeviceID);
+//    SaveStringWithKey([[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString],kDeviceID);
     SaveStringWithKey(@"1", kDeviceType);
 }
 
@@ -107,6 +109,7 @@
 }
 #pragma mark:IBActions and Selectors
 -(void)goToHomeScreenAfterSuccessfulLogin{
+    [appDelegate updateDeviceTokenForPush];
     HomeViewController * homeVC=[[HomeViewController alloc]init];
     [self.navigationController pushViewController:homeVC animated:YES];
 }

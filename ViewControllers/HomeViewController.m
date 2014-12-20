@@ -15,6 +15,7 @@
 #import "UploadPhotoViewController.h"
 #import "MyPhotoesViewController.h"
 #import "MyProfileViewController.h"
+#import "SettingsViewController.h"
 
 @interface HomeViewController ()
 {
@@ -128,6 +129,11 @@
     else if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kMyPhoto]){
         MyPhotoesViewController * myPhotoVC=[[MyPhotoesViewController alloc]init];
         [self.navigationController pushViewController:myPhotoVC animated:YES];
+    }
+    else if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kSettings])
+    {
+        SettingsViewController * settingsVC=[[SettingsViewController alloc]init];
+        [self.navigationController pushViewController:settingsVC animated:YES];
     }
 }
 #pragma mark - UIImagePickerControllerDelegate

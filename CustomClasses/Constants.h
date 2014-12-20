@@ -28,6 +28,7 @@
 #define kTaskRejectFriendReq        @"rejectFriendRequest"
 #define kTaskGetFriends             @"getUserFriends"
 #define kTaskGetAllFriendReq        @"getAllFriendsRequest"
+#define kTaskRegisterDevice     @"registerDevice"
 
 
 #define kMenGallery     @"Mens Gallery"
@@ -69,4 +70,5 @@
 
 #define kAppName        @"Selfie Central"
 #define kIsLoggedIn     @"isLoggedIn"
+#define kIsPushRegistered   @"pushregistered"
 

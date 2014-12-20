@@ -17,5 +17,5 @@
     UINavigationController * mainNavigationController;
 }
 @property (strong, nonatomic) UIWindow *window;
-
+-(void)updateDeviceTokenForPush;
 @end

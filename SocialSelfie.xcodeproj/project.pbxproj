@@ -246,7 +246,7 @@
 		55DF91EC19FEF06300DB21DB /* TNRectangularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91E319FEF06300DB21DB /* TNRectangularRadioButtonData.m */; };
 		790E147B1A42F4C900236DDB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790E14791A42F4C900236DDB /* SettingsViewController.m */; };
 		790E147C1A42F4C900236DDB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790E147A1A42F4C900236DDB /* SettingsViewController.xib */; };
-		790E14851A42F53300236DDB /* check_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E147E1A42F53300236DDB /* check_icon_large.png */; };
+		790E14851A42F53300236DDB /* check_icon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E147E1A42F53300236DDB /* check_icon_large@2x.png */; };
 		790E14861A42F53300236DDB /* check_icon_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E147F1A42F53300236DDB /* check_icon_small@2x.png */; };
 		790E14871A42F53300236DDB /* friend_request_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14801A42F53300236DDB /* friend_request_icon@2x.png */; };
 		790E14881A42F53300236DDB /* notify_bell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14811A42F53300236DDB /* notify_bell@2x.png */; };
@@ -610,7 +610,7 @@
 		790E14781A42F4C900236DDB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		790E14791A42F4C900236DDB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		790E147A1A42F4C900236DDB /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		790E147E1A42F53300236DDB /* check_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_icon_large.png; sourceTree = "<group>"; };
+		790E147E1A42F53300236DDB /* check_icon_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_icon_large@2x.png"; sourceTree = "<group>"; };
 		790E147F1A42F53300236DDB /* check_icon_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_icon_small@2x.png"; sourceTree = "<group>"; };
 		790E14801A42F53300236DDB /* friend_request_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend_request_icon@2x.png"; sourceTree = "<group>"; };
 		790E14811A42F53300236DDB /* notify_bell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notify_bell@2x.png"; sourceTree = "<group>"; };
@@ -1396,7 +1396,7 @@
 		790E147D1A42F53300236DDB /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				790E147E1A42F53300236DDB /* check_icon_large.png */,
+				790E147E1A42F53300236DDB /* check_icon_large@2x.png */,
 				790E147F1A42F53300236DDB /* check_icon_small@2x.png */,
 				790E14801A42F53300236DDB /* friend_request_icon@2x.png */,
 				790E14811A42F53300236DDB /* notify_bell@2x.png */,
@@ -1584,7 +1584,7 @@
 				55682FDC1A001A34000F1142 /* twitter_button@2x.png in Resources */,
 				55DF91A519FEE1B800DB21DB /* MyPhotoesViewController.xib in Resources */,
 				553A030D1A15473800A6894A /* profile_background@2x.png in Resources */,
-				790E14851A42F53300236DDB /* check_icon_large.png in Resources */,
+				790E14851A42F53300236DDB /* check_icon_large@2x.png in Resources */,
 				790E14861A42F53300236DDB /* check_icon_small@2x.png in Resources */,
 				55CEFC7A19A8ACE50092CA6F /* ActionSheetPickerViewController-iPad.xib in Resources */,
 				55693BCF19F1BE8C00106D17 /* HomeViewController.xib in Resources */,
@@ -1860,7 +1860,7 @@
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "15892f21-7d61-45ea-9f0e-3d9564def0bd";
+				PROVISIONING_PROFILE = "a735a0d0-497c-4509-9a7a-c921b9fbfb1b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1875,7 +1875,7 @@
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "15892f21-7d61-45ea-9f0e-3d9564def0bd";
+				PROVISIONING_PROFILE = "a735a0d0-497c-4509-9a7a-c921b9fbfb1b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

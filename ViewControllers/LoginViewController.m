@@ -12,9 +12,12 @@
 #import "MBProgressHUD.h"
 #import "UtilsFunctions.h"
 #import "HomeViewController.h"
+#import "SocialSelfieAppDelegate.h"
 
 @interface LoginViewController ()
-
+{
+    SocialSelfieAppDelegate * appDelegate;
+}
 @end
 
 @implementation LoginViewController
@@ -23,7 +26,7 @@
 {
     self = [super initWithNibName:@"LoginViewController" bundle:nil];
     if (self) {
-        // Custom initialization
+        appDelegate=(SocialSelfieAppDelegate*)[UIApplication sharedApplication].delegate;
     }
     return self;
 }
@@ -41,6 +44,7 @@
 }
 #pragma mark:IBActions and Selectors
 -(void)goToHomeAfterSuccessfulLogin{
+    [appDelegate updateDeviceTokenForPush];
     HomeViewController * homeVC=[[HomeViewController alloc]init];
     [self.navigationController pushViewController:homeVC animated:YES];
 }

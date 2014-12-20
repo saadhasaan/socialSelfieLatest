@@ -11,6 +11,7 @@
 #import "MainLoginViewController.h"
 #import "UtilsFunctions.h"
 #import "Constants.h"
+#import "AFNetworking.h"
 
 @implementation SocialSelfieAppDelegate
 
@@ -80,10 +81,42 @@
     NSString* newToken = [deviceToken description];
     newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
+    SaveStringWithKey(newToken, kDeviceID);
+    if (GetStringWithKey(kUserID) && [GetStringWithKey(kIsPushRegistered)isEqualToString:@"YES"]) {
+       //Do nothing
+    }
+    else if(GetStringWithKey(kUserID)){
+        [self updateDeviceTokenForPush];
+    }
     NSLog(@"Push token is: %@", newToken);
 }
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
  
 }
+-(void)updateDeviceTokenForPush{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:kTaskRegisterDevice forKey:kTask];
+    if (GetStringWithKey(kUserID)) {
+        [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
+    }
+    if (GetStringWithKey(kDeviceID)) {
+        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
+    }
+    [params setObject:@"1" forKey:kDeviceType];
+    
+    [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKey:@"success"]boolValue]){
+            SaveStringWithKey(kIsPushRegistered, @"YES");
+        }
+        else{
+            SaveStringWithKey(kIsPushRegistered, @"NO");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+
 @end
