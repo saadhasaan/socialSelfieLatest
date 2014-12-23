@@ -66,9 +66,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[mainArray objectAtIndex:indexPath.row]isEqualToString:kTopCell]) {
+        self.cellTopAlert.selectionStyle=UITableViewCellSelectionStyleNone;
         return self.cellTopAlert;
     }
     else{
+        self.cellFriendsAlert.selectionStyle=UITableViewCellSelectionStyleNone;
         return self.cellFriendsAlert;
     }
 }
@@ -78,6 +80,7 @@
 }
 
 - (IBAction)pushAlertsBtnPressed:(id)sender {
+    
     [self.btnPushAlerts setSelected:!self.btnPushAlerts];
 }
 

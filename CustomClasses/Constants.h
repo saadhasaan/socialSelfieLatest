@@ -67,6 +67,7 @@
 #define kRecieverID     @"receiverId"
 #define kRequestID      @"requestId"
 #define kProfileImage   @"profileImage"
+#define kNotificationStatus @"notificationStatus"
 
 #define kAppName        @"Selfie Central"
 #define kIsLoggedIn     @"isLoggedIn"

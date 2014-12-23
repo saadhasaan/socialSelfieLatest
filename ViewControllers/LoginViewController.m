@@ -69,6 +69,9 @@
     if (GetStringWithKey(kDeviceID)) {
         [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
     }
+    else{
+        [params setObject:kDeviceID forKey:kDeviceID];
+    }
     [params setObject:kTaskLogin forKey:kTask];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

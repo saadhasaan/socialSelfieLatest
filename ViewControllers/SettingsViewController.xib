@@ -91,6 +91,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="uncheck_icon_large.png"/>
+                        <state key="highlighted" image="uncheck_icon_large.png"/>
                         <connections>
                             <action selector="pushAlertsBtnPressed:" destination="-1" eventType="touchUpInside" id="oMV-ou-AkC"/>
                         </connections>

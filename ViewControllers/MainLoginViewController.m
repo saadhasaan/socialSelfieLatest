@@ -167,12 +167,12 @@
     }
     [params setObject:fbUser.profileImageURL forKey:kFacebookImage];
 
-    if (GetStringWithKey(kDeviceType)) {
-        [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
-    }
-    if (GetStringWithKey(kDeviceID)) {
-        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
-    }
+//    if (GetStringWithKey(kDeviceType)) {
+//        [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
+//    }
+//    if (GetStringWithKey(kDeviceID)) {
+//        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
+//    }
     [params setObject:kTaskFBLogin forKey:kTask];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -215,12 +215,12 @@
     }
     [params setObject:fbUser.profileImageURL forKey:kTwitterImage];
     SaveStringWithKey(fbUser.profileImageURL, kProfileImage);
-    if (GetStringWithKey(kDeviceType)) {
-        [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
-    }
-    if (GetStringWithKey(kDeviceID)) {
-        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
-    }
+//    if (GetStringWithKey(kDeviceType)) {
+//        [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
+//    }
+//    if (GetStringWithKey(kDeviceID)) {
+//        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
+//    }
     [params setObject:kTaskTWLogin forKey:kTask];
     [params setObject:@"NP" forKey:kCountry];
     
