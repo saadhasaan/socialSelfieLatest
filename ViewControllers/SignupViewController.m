@@ -167,6 +167,17 @@
 //    if (GetStringWithKey(kDeviceID)) {
 //        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
 //    }
+    if (GetStringWithKey(kIsPushEnabled)) {
+        if ([GetStringWithKey(kIsPushEnabled)isEqualToString:@"NO"]) {
+            [params setObject:@"0" forKey:kNotificationStatus];
+        }
+        else{
+            [params setObject:@"1" forKey:kNotificationStatus];
+        }
+    }
+    else{
+        [params setObject:@"1" forKey:kNotificationStatus];
+    }
     [params setObject:kTaskSignUp forKey:kTask];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [manager POST:kBaseURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

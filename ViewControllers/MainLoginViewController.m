@@ -84,7 +84,7 @@
 }
 -(void)twProfileHasBeenFetchedSuccessfullyWithInfo:(FBUserSelf *)fbUser{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-    [self twitterLoginWebserviceWithFBUser:fbUser];
+    [self facebookLoginWebserviceWithFBUser:fbUser];
     //Save data in user default
     if (fbUser.email) {
         SaveStringWithKey(fbUser.email, kUserName);
@@ -166,7 +166,17 @@
         [params setObject:@"NP" forKey:kEmail];
     }
     [params setObject:fbUser.profileImageURL forKey:kFacebookImage];
-
+    if (GetStringWithKey(kIsPushEnabled)) {
+        if ([GetStringWithKey(kIsPushEnabled)isEqualToString:@"NO"]) {
+            [params setObject:@"0" forKey:kNotificationStatus];
+        }
+        else{
+            [params setObject:@"1" forKey:kNotificationStatus];
+        }
+    }
+    else{
+        [params setObject:@"1" forKey:kNotificationStatus];
+    }
 //    if (GetStringWithKey(kDeviceType)) {
 //        [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
 //    }
@@ -221,6 +231,17 @@
 //    if (GetStringWithKey(kDeviceID)) {
 //        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
 //    }
+    if (GetStringWithKey(kIsPushEnabled)) {
+        if ([GetStringWithKey(kIsPushEnabled)isEqualToString:@"NO"]) {
+            [params setObject:@"0" forKey:kNotificationStatus];
+        }
+        else{
+            [params setObject:@"1" forKey:kNotificationStatus];
+        }
+    }
+    else{
+        [params setObject:@"1" forKey:kNotificationStatus];
+    }
     [params setObject:kTaskTWLogin forKey:kTask];
     [params setObject:@"NP" forKey:kCountry];
     

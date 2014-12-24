@@ -15,7 +15,11 @@
 @interface SocialSelfieAppDelegate : UIResponder <UIApplicationDelegate>
 {
     UINavigationController * mainNavigationController;
+    NSInteger badgeCount;
 }
 @property (strong, nonatomic) UIWindow *window;
 -(void)updateDeviceTokenForPush;
+#pragma mark-Custom Methods
+-(void)resetBadgeCount;
+-(NSInteger)getBadgeCount;
 @end

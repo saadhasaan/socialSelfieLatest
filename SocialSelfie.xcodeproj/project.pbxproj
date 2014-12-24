@@ -253,6 +253,7 @@
 		790E14891A42F53300236DDB /* twitter_facebook_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14821A42F53300236DDB /* twitter_facebook_icon@2x.png */; };
 		790E148A1A42F53300236DDB /* uncheck_icon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14831A42F53300236DDB /* uncheck_icon_large@2x.png */; };
 		790E148B1A42F53300236DDB /* uncheck_icon_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14841A42F53300236DDB /* uncheck_icon_small@2x.png */; };
+		79FE09FF1A4A9E8200845D64 /* M13BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FE09FE1A4A9E8200845D64 /* M13BadgeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -617,6 +618,8 @@
 		790E14821A42F53300236DDB /* twitter_facebook_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_facebook_icon@2x.png"; sourceTree = "<group>"; };
 		790E14831A42F53300236DDB /* uncheck_icon_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck_icon_large@2x.png"; sourceTree = "<group>"; };
 		790E14841A42F53300236DDB /* uncheck_icon_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck_icon_small@2x.png"; sourceTree = "<group>"; };
+		79FE09FD1A4A9E8200845D64 /* M13BadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13BadgeView.h; sourceTree = "<group>"; };
+		79FE09FE1A4A9E8200845D64 /* M13BadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13BadgeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -909,6 +912,7 @@
 		55CEFBED19A8ACE40092CA6F /* OpenSourceFrameWorks */ = {
 			isa = PBXGroup;
 			children = (
+				79FE09FC1A4A9E8200845D64 /* M13BadgeView */,
 				556FCFEC1A02D6B200634508 /* AFImagePager */,
 				55682FBB1A000A00000F1142 /* KeyboardHandler */,
 				55DF91CF19FEF06300DB21DB /* TNRadioButtonGroup */,
@@ -1407,6 +1411,15 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
+		79FE09FC1A4A9E8200845D64 /* M13BadgeView */ = {
+			isa = PBXGroup;
+			children = (
+				79FE09FD1A4A9E8200845D64 /* M13BadgeView.h */,
+				79FE09FE1A4A9E8200845D64 /* M13BadgeView.m */,
+			);
+			path = M13BadgeView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1654,6 +1667,7 @@
 				559B2A3119B303EC00FB0BF9 /* BaseViewController.m in Sources */,
 				55DF91C819FEE57D00DB21DB /* MyPhotoCell.m in Sources */,
 				55DF91A419FEE1B800DB21DB /* MyPhotoesViewController.m in Sources */,
+				79FE09FF1A4A9E8200845D64 /* M13BadgeView.m in Sources */,
 				55693BE919F1CFA200106D17 /* CommentsViewController.m in Sources */,
 				55DF91EB19FEF06300DB21DB /* TNRectangularRadioButton.m in Sources */,
 				55682FC01A000A00000F1142 /* TPKeyboardAvoidingScrollView.m in Sources */,

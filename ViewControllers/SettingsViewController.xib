@@ -87,10 +87,10 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T6G-Jp-6aD">
                         <rect key="frame" x="262" y="27" width="36" height="36"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="check_icon_large.png">
+                        <state key="normal" image="uncheck_icon_large.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <state key="selected" image="uncheck_icon_large.png"/>
+                        <state key="selected" image="check_icon_large.png"/>
                         <state key="highlighted" image="uncheck_icon_large.png"/>
                         <connections>
                             <action selector="pushAlertsBtnPressed:" destination="-1" eventType="touchUpInside" id="oMV-ou-AkC"/>
@@ -133,6 +133,9 @@
                         <state key="normal" title="Accept all Friend Requests" image="check_icon_small.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="highlighted">
+                            <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="AcceptAllFriendReqPressed:" destination="-1" eventType="touchUpInside" id="wLW-F9-cvO"/>
                         </connections>
@@ -164,7 +167,7 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="-61" y="157.5"/>
+            <point key="canvasLocation" x="-79" y="159.5"/>
         </tableViewCell>
     </objects>
     <resources>

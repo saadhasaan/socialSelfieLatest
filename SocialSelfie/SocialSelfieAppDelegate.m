@@ -93,6 +93,18 @@
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
  
 }
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSString* alertValue = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+    badgeCount++;
+}
+#pragma mark-Custom Methods
+-(void)resetBadgeCount{
+    badgeCount=0;
+}
+-(NSInteger)getBadgeCount{
+    return badgeCount;
+}
+#pragma mark-Webservice
 -(void)updateDeviceTokenForPush{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
