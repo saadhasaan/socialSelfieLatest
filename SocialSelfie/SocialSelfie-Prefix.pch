@@ -14,3 +14,9 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+typedef enum : NSUInteger {
+    Recent,
+    Yesterday,
+    All
+}PhotoAddedType;

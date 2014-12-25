@@ -95,6 +95,7 @@
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSString* alertValue = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+    NSLog(@"Push Message:%@",alertValue);
     badgeCount++;
 }
 #pragma mark-Custom Methods

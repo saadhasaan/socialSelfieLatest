@@ -17,12 +17,14 @@
 #import "MyProfileViewController.h"
 #import "SettingsViewController.h"
 #import "M13BadgeView.h"
+#import "SocialSelfieAppDelegate.h"
 
 @interface HomeViewController ()
 {
     NSMutableArray * mainArray;
     NSMutableArray * imgIconArray;
     M13BadgeView *badgeView;
+    SocialSelfieAppDelegate * appDelegate;
 }
 @end
 
@@ -34,6 +36,7 @@
     if (self) {
         mainArray=[[NSMutableArray alloc]init];
         imgIconArray=[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:@"mens_gallery_icon",@"womens_gallery_icon",@"upload_photo",@"take_photo",@"my_photos",@"my_profile",@"my_alerts_icon",@"chat_icon",@"settings_icon", nil]];
+        appDelegate=(SocialSelfieAppDelegate*)[UIApplication sharedApplication].delegate;
     }
     return self;
 }
@@ -47,7 +50,11 @@
     [self loadMainArray];
     [self initializeBadgeView];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    badgeView.text=[NSString stringWithFormat:@"%li",(long)[appDelegate getBadgeCount]];
+    badgeView.frame=CGRectMake(67, 0, 20, 20);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

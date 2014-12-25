@@ -7,6 +7,7 @@
 //
 
 #import "MyPhotoesPic.h"
+#import "UtilsFunctions.h"
 
 @implementation MyPhotoesPic
 -(MyPhotoesPic*) initWithDictionary:(NSDictionary*)dict
@@ -37,6 +38,7 @@
             if(![[NSNull null]isEqual:[dict valueForKey:@"createdDate"]])
             {
                 self.createdDate=[dict valueForKey:@"createdDate"];
+                self.hoursFromPosted=[UtilsFunctions getTheNumberOfHoursFromDateString:[dict valueForKey:@"createdDate"]];
             }
         }
         if([dict valueForKey:@"totalComment"])

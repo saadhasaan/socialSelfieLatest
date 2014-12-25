@@ -37,16 +37,17 @@
     [self.imgView setImageWithURL:[NSURL URLWithString:picData.imageURL]];
     self.lblLikeCOunt.text=[NSString stringWithFormat:@"%li",(long)picData.likeCount];
     self.lblCommentCount.text=[NSString stringWithFormat:@"%li",(long)picData.commentCount];
+    self.picID=picData.imageID;
 }
 - (IBAction)likeBtnAction:(id)sender {
-    [delegate gotoLikesDetailForPhotoID:@"ad"];
+    [delegate gotoLikesDetailForPhotoID:self.picID];
 }
 
 - (IBAction)commentBtnAction:(id)sender {
-    [delegate gotoCommentsDetailForPhotoID:@"ad"];
+    [delegate gotoCommentsDetailForPhotoID:self.picID];
 }
 
 - (IBAction)shareBtnAction:(id)sender {
-    [delegate gotoShareForPhotoID:@"ad"];
+    [delegate gotoShareForPhotoID:self.picID];
 }
 @end

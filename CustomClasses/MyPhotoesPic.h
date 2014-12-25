@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString * imageID;
 @property (nonatomic, strong) NSString * createdDate;
 @property (nonatomic, strong) NSString * imageURL;
+@property (nonatomic) NSInteger hoursFromPosted;
 @property (nonatomic) NSInteger likeCount;
 @property (nonatomic) NSInteger commentCount;
 

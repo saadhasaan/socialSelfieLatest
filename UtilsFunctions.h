@@ -52,7 +52,7 @@ BOOL BoolWithKey(NSString* key);
 
 + (NSString *) getFormattedDateFromDate:(NSDate *)addedDate;
 + (NSString *) getFormattedTimeFromDate:(NSDate *)addedDate;
-
++ (NSInteger) getTheNumberOfHoursFromDateString:(NSString *)dateString;
 +(void)saveAllEndorsementArrayInUserDefaults:(NSArray *)array;
 
 +(UIImage *)compressImage:(UIImage *)img WithSize:(CGSize)newSize;

@@ -49,7 +49,7 @@
     if([info valueForKey:UIImagePickerControllerOriginalImage]){
         UIImage *chosenImage =info[UIImagePickerControllerOriginalImage];
         [picker dismissViewControllerAnimated:NO completion:nil];
-        self.imgView.image=[UtilsFunctions imageWithImage:chosenImage scaledToSize:CGSizeMake(300, 300)];
+        self.imgView.image=[UtilsFunctions imageWithImage:chosenImage scaledToSize:CGSizeMake(320, 450)];
         mainImage=chosenImage;
     }
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -95,7 +95,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     
-    NSData * imageData=UIImageJPEGRepresentation(mainImage, 0.1);
+    NSData * imageData=UIImageJPEGRepresentation(mainImage, 0.4);
     
     [manager POST:kBaseURLImages parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:imageData name:kUploadedFile fileName:[NSString stringWithFormat: @"sharingImage%f.jpg", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/jpeg"];

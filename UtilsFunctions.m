@@ -235,6 +235,16 @@ NSString * getBackgroundImageName(NSString *bkImageId)
     NSString *date = [formatter stringFromDate:addedDate];
     return date;
 }
++ (NSInteger) getTheNumberOfHoursFromDateString:(NSString *)dateString{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];//@"yyyy-MM-dd"];
+    NSDate *dateFrom=[formatter dateFromString:dateString];
+    NSDate *currentDate=[NSDate date];
+    NSTimeInterval distanceBetweenDates = [currentDate timeIntervalSinceDate:dateFrom];
+    double secondsInAnHour = 3600;
+    NSInteger hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+    return hoursBetweenDates;
+}
 #pragma mark:Compress or resize the image
 +(UIImage *)compressImage:(UIImage *)img WithSize:(CGSize)newSize{
     UIGraphicsBeginImageContext(newSize);

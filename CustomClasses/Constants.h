@@ -31,8 +31,11 @@
 #define kTaskRegisterDevice     @"registerDevice"
 #define kTaskAcceptAllFriendRequest @"acceptAllFriendRequest"
 #define kTaskDenyAllFriendRequest   @"denyAllFriendRequest"
-#define kTaskUnableNotify           @"unableNotify"
+#define kTaskEnableNotify           @"enableNotify"
 #define kTaskDisableNotify          @"disableNotify"
+#define kTaskEnableFriendRequest    @"enableFriendRequest"
+#define kTaskDisableFriendRequest   @"disableFriendRequest"
+#define kTaskReportUser             @"reportUser"
 
 #define kMenGallery     @"Mens Gallery"
 #define kWomenGallery   @"Womens Gallery"
@@ -76,4 +79,5 @@
 #define kIsLoggedIn     @"isLoggedIn"
 #define kIsPushRegistered   @"pushregistered"
 #define kIsPushEnabled  @"isPushEnabled"
+#define kIsFriendReqEnabled  @"isFriendReqEnabled"
 

@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCommentCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblShare;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (strong, nonatomic)NSString * picID;
 
 -(void)loadDataWithImageURL:(MyPhotoesPic *)picData;
 

@@ -18,8 +18,11 @@
 @interface MyPhotoesViewController ()
 {
     NSMutableArray * mainArray;
+    NSMutableArray * mainArrayRecent;
+    NSMutableArray * mainArrayYesterday;
     SharePopUpView * sharePopUpView;
     BOOL isSharePopUpViewPresent;
+    PhotoAddedType dateType;
 }
 @end
 
@@ -30,6 +33,8 @@
     self = [super initWithNibName:@"MyPhotoesViewController" bundle:Nil];
     if (self) {
         mainArray=[[NSMutableArray alloc]init];
+        mainArrayRecent=[[NSMutableArray alloc]init];
+        mainArrayYesterday=[[NSMutableArray alloc]init];
         sharePopUpView=[[SharePopUpView alloc]init];
         sharePopUpView.frame=CGRectMake(0, self.view.frame.size.height-130-100,sharePopUpView.frame.size.width, sharePopUpView.frame.size.height);
         sharePopUpView.delegate=self;
@@ -42,6 +47,7 @@
 {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
     [self addSegmentBarToViewNew];
     [self getMyPhotosWebservice];
@@ -52,6 +58,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark: Custom Methods
+-(void)filterMainArray{
+    [mainArrayRecent removeAllObjects];
+    [mainArrayYesterday removeAllObjects];
+    for (MyPhotoesPic * photoObj in mainArray) {
+        if (photoObj.hoursFromPosted<=24) {
+            [mainArrayRecent addObject:photoObj];
+        }
+        else if(photoObj.hoursFromPosted<=48)
+        {
+            [mainArrayYesterday addObject:photoObj];
+        }
+    }
+    
+}
 #pragma mark: UITableView Delegates and Datasource methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -60,8 +81,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [mainArray count];
-    
+    if (dateType==Recent) {
+        return [mainArrayRecent count];
+    }
+    else if(dateType==Yesterday){
+        return [mainArrayYesterday count];
+    }
+    else{
+        return [mainArray count];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,14 +99,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier=@"photoCell";
-    
+    MyPhotoesPic * photoObj;
+    if (dateType==Recent) {
+        photoObj=[mainArrayRecent objectAtIndex:indexPath.row];
+    }
+    else if(dateType==Yesterday){
+        photoObj=[mainArrayYesterday objectAtIndex:indexPath.row];
+    }
+    else{
+        photoObj=[mainArray objectAtIndex:indexPath.row];
+    }
     
     MyPhotoCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         NSArray * nibArray = [[NSBundle mainBundle] loadNibNamed:@"MyPhotoCell" owner:nil options:nil];
         cell = (MyPhotoCell*)[nibArray objectAtIndex:0];
     }
-    [cell loadDataWithImageURL:[mainArray objectAtIndex:indexPath.row]];
+    [cell loadDataWithImageURL:photoObj];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     cell.delegate=self;
     return cell;
@@ -158,10 +195,14 @@
     [tempSegmentControl setSelectionLocation:HMSegmentedControlSelectionLocationUp];
     
     [self.view addSubview:tempSegmentControl];
+    
+    dateType=Recent;
 }
 #pragma mark-Selectors
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
     NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
+    dateType=segmentedControl.selectedSegmentIndex;
+    [self.tableView reloadData];
 }
 
 - (IBAction)backBtnAction:(id)sender {
@@ -191,13 +232,13 @@
                 MyPhotoesPic * imgData=[[MyPhotoesPic alloc]initWithDictionary:dict];
                 [mainArray addObject:imgData];
             }
+            [self filterMainArray];
             [self.tableView reloadData];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSLog(@"Error: %@", error);
     }];
-    
 }
 
 @end

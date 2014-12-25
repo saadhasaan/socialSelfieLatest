@@ -40,6 +40,11 @@
             [self.btnPushAlerts setSelected:YES];
         }
     }
+    if (GetStringWithKey(kIsFriendReqEnabled)) {
+        if ([GetStringWithKey(kIsFriendReqEnabled)isEqualToString:@"NO"]) {
+            [self.btndontNotifyFriendReq setSelected:YES];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,8 +101,31 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        if ([[responseObject valueForKey:@"statusCode"]integerValue]==11000){
+        if ([[responseObject valueForKey:@"statusCode"]integerValue]==12000){
             ShowMessage(kAppName,@"Notification setting has been disabled.");
+        }
+        else if([[responseObject valueForKey:@"statusCode"]integerValue]==12001){
+            ShowMessage(kAppName, @"Unable to update the record.");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"Error: %@", error);
+    }];
+}
+-(void)enableNotificationsWebservice{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:kTaskEnableNotify forKey:kTask];
+    if (GetStringWithKey(kUserID)) {
+        [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if ([[responseObject valueForKey:@"statusCode"]integerValue]==11000){
+            ShowMessage(kAppName,@"Notification setting has been enabled.");
         }
         else if([[responseObject valueForKey:@"statusCode"]integerValue]==11001){
             ShowMessage(kAppName, @"Unable to update the record.");
@@ -107,7 +135,6 @@
         NSLog(@"Error: %@", error);
     }];
 }
-
 -(void)acceptAllFriendReqWebservice{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -155,6 +182,52 @@
         NSLog(@"Error: %@", error);
     }];
 }
+-(void)disableFriendReqWebservice{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:kTaskDisableFriendRequest forKey:kTask];
+    if (GetStringWithKey(kUserID)) {
+        [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if ([[responseObject valueForKey:@"statusCode"]integerValue]==14000){
+            ShowMessage(kAppName,@"Receiving Friend request has been disabled.");
+        }
+        else if([[responseObject valueForKey:@"statusCode"]integerValue]==14001){
+            ShowMessage(kAppName, @"Unable to update the record.");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"Error: %@", error);
+    }];
+}
+-(void)enableFriendReqWebservice{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:kTaskEnableFriendRequest forKey:kTask];
+    if (GetStringWithKey(kUserID)) {
+        [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if ([[responseObject valueForKey:@"statusCode"]integerValue]==13000){
+            ShowMessage(kAppName,@"Receiving Friend request has been enabled.");
+        }
+        else if([[responseObject valueForKey:@"statusCode"]integerValue]==13001){
+            ShowMessage(kAppName, @"Unable to update the record.");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"Error: %@", error);
+    }];
+}
 
 #pragma mark-IBActions and Selectors
 - (IBAction)backBtnAction:(id)sender {
@@ -168,6 +241,7 @@
         SaveStringWithKey(@"NO", kIsPushEnabled);
     }
     else{
+        [self enableNotificationsWebservice];
         SaveStringWithKey(@"YES", kIsPushEnabled);
     }
 }
@@ -181,6 +255,15 @@
 }
 
 - (IBAction)denyAllNotificationFriendNotifications:(id)sender {
-    [self.btndontNotifyFriendReq setSelected:!self.btndontNotifyFriendReq];
+    [self.btndontNotifyFriendReq setSelected:!self.btndontNotifyFriendReq.selected];
+    if (self.btndontNotifyFriendReq.selected) {
+        [self disableFriendReqWebservice];
+        SaveStringWithKey(@"NO", kIsPushEnabled);
+    }
+    else{
+        [self enableFriendReqWebservice];
+        SaveStringWithKey(@"YES", kIsPushEnabled);
+    }
+
 }
 @end

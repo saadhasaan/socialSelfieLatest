@@ -45,7 +45,8 @@
     
     _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor lightGrayColor];
     _imagePager.pageControl.pageIndicatorTintColor = [UIColor blackColor];
- 
+    _imagePager.indicatorDisabled=YES;
+    
     mainImgURLArray=[[NSMutableArray alloc]init];
     [self getAllPicturesOfMensGalleryWebsrvice];
     

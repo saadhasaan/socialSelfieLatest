@@ -51,8 +51,11 @@
     [super viewDidLoad];
     
     mainArray=[[NSMutableArray alloc]init];
+    
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    
     [self loadMainArray];
-    [self getAllPicturesOfMensGalleryWebsrvice];
+    [self getAllCommentsWebsrvice];
 //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -180,7 +183,7 @@
     return YES;
 }
 #pragma mark:Websrevices
--(void)getAllPicturesOfMensGalleryWebsrvice{
+-(void)getAllCommentsWebsrvice{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -191,6 +194,7 @@
     if(picObject.imageID){
         [params setObject:picObject.imageID forKey:kImageID];
     }
+    
     [params setObject:kTaskGetCommentByImageID forKey:kTask];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -238,7 +242,7 @@
         if ([[responseObject valueForKey:kStatusCode]integerValue]==13000) {
             if ([responseObject valueForKey:kValue] && ![[responseObject valueForKey:kValue]isEqual:[NSNull null]]) {
                 ShowMessage(kAppName, @"Comment has been added successfully.");
-                [self performSelectorOnMainThread:@selector(getAllPicturesOfMensGalleryWebsrvice) withObject:nil waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(getAllCommentsWebsrvice) withObject:nil waitUntilDone:NO];
             }
         }
         else if ([[responseObject valueForKey:@"statusCode"]integerValue]==13001) {
