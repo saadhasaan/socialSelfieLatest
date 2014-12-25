@@ -16,11 +16,13 @@
 #import "MyPhotoesViewController.h"
 #import "MyProfileViewController.h"
 #import "SettingsViewController.h"
+#import "M13BadgeView.h"
 
 @interface HomeViewController ()
 {
     NSMutableArray * mainArray;
     NSMutableArray * imgIconArray;
+    M13BadgeView *badgeView;
 }
 @end
 
@@ -43,7 +45,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"HomeColCell"];
     
     [self loadMainArray];
-
+    [self initializeBadgeView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +54,11 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark:Custom Methods
+-(void)initializeBadgeView{
+    badgeView = [[M13BadgeView alloc] initWithFrame:CGRectMake(24,24, 24.0, 24.0)];
+    badgeView.text = @"0";
+    badgeView.font=[UIFont fontWithName:@"GillSans" size:12.0];
+}
 -(void)loadMainArray{
     [mainArray removeAllObjects];
     [mainArray addObject:kMenGallery];
@@ -82,6 +89,10 @@
     HomeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeColCell" forIndexPath:indexPath];
     
     cell.titleLbl.text=[mainArray objectAtIndex:indexPath.row];
+    if ([[mainArray objectAtIndex:indexPath.row]isEqualToString:kMyAlerts]) {
+        badgeView.frame=CGRectMake(67, 0, 20, 20);
+        [cell.contentView addSubview:badgeView];
+    }
     cell.imgView.image=[UIImage imageNamed:[imgIconArray objectAtIndex:indexPath.row]];
     return cell;
 }

@@ -66,11 +66,22 @@
     if (GetStringWithKey(kDeviceType)) {
         [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
     }
-    if (GetStringWithKey(kDeviceID)) {
-        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
+//    if (GetStringWithKey(kDeviceID)) {
+//        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
+//    }
+//    else{
+//        [params setObject:kDeviceID forKey:kDeviceID];
+//    }
+    if (GetStringWithKey(kIsPushEnabled)) {
+        if ([GetStringWithKey(kIsPushEnabled)isEqualToString:@"NO"]) {
+            [params setObject:@"0" forKey:kNotificationStatus];
+        }
+        else{
+            [params setObject:@"1" forKey:kNotificationStatus];
+        }
     }
     else{
-        [params setObject:kDeviceID forKey:kDeviceID];
+        [params setObject:@"1" forKey:kNotificationStatus];
     }
     [params setObject:kTaskLogin forKey:kTask];
     
