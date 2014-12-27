@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString * reqID;
 @property (nonatomic, strong) NSString * reqUserName;
 @property (nonatomic, strong) NSString * reqUserPicURL;
-@property (nonatomic, strong) NSString * reqStatus;
+@property (nonatomic) NSInteger reqStatus;
 @property (nonatomic, strong) NSString * reqUserID;
 @property (nonatomic) BOOL isRecieved;
 

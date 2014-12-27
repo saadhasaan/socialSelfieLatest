@@ -43,7 +43,7 @@
         {
             if(![[NSNull null]isEqual:[dict valueForKey:@"status"]])
             {
-                self.reqStatus=[dict valueForKey:@"istatusd"];
+                self.reqStatus=[[dict valueForKey:@"status"]integerValue];
             }
         }
         if([dict valueForKey:@"userId"])

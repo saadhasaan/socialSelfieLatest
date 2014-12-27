@@ -48,7 +48,7 @@
     }
     [UtilsFunctions makeUIImageViewRound:self.myImage ANDRadius:48];
     
-    [self getAllFriendsReqWebservice];
+    [self getAllFriendsWebservice];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,7 +89,7 @@
     [self.navigationController pushViewController:friendReqVC animated:YES];
 }
 #pragma mark:Webservice
--(void)getAllFriendsReqWebservice{
+-(void)getAllFriendsWebservice{
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

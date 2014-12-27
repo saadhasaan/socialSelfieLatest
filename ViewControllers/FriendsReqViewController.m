@@ -41,7 +41,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    [self getMyPhotosWebservice];
+    [self getAllFriendReqsWebservice];
     showRec=YES;
 }
 
@@ -141,7 +141,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark:Webservices
--(void)getMyPhotosWebservice{
+-(void)getAllFriendReqsWebservice{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
@@ -164,11 +164,15 @@
             [mainArrayRec removeAllObjects];
             for (NSDictionary * dict in recReqArray) {
                 FriendReq * req=[[FriendReq alloc]initWithDictionary:dict ANDIsReqRecieving:YES];
-                [mainArrayRec addObject:req];
+                if (req.reqStatus==0) {
+                    [mainArrayRec addObject:req];
+                }
             }
             for (NSDictionary * dict in sentReqArray) {
                 FriendReq * req=[[FriendReq alloc]initWithDictionary:dict ANDIsReqRecieving:NO];
-                [mainArraySent addObject:req];
+                if (req.reqStatus==0) {
+                    [mainArraySent addObject:req];
+                }
             }
             [self.tableView reloadData];
         }
