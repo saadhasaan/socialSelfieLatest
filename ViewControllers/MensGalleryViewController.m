@@ -178,8 +178,9 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
         SLComposeViewController *fbPostSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [fbPostSheet setInitialText:@"This is a Facebook post!"];
-
+        [fbPostSheet setInitialText:@"I like that picture very much on Central Selfie, please check that!"];
+        [fbPostSheet addURL:[NSURL URLWithString:[mainImgURLArray objectAtIndex:currentIndex]]];
+        
         [self presentViewController:fbPostSheet animated:YES completion:nil];
     } else
     {
@@ -190,9 +191,10 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"This is a tweet!"];
+        [tweetSheet setInitialText:@"TI like that picture very much on Central Selfie, please check that!"];
+        [tweetSheet addURL:[NSURL URLWithString:[mainImgURLArray objectAtIndex:currentIndex]]];
+
         [self presentViewController:tweetSheet animated:YES completion:nil];
-        
     }
     else
     {

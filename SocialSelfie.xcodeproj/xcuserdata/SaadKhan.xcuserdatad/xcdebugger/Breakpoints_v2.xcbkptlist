@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewControllers/SignupViewController.m"
-            timestampString = "440761826.438882"
+            timestampString = "441477158.511413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-signUpWebservice"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewControllers/MensGalleryViewController.m"
-            timestampString = "441225342.16061"
+            timestampString = "441477158.511413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "-sendFriendReqWebservice"
             landmarkType = "5">
          </BreakpointContent>

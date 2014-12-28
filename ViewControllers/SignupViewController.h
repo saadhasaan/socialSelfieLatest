@@ -11,7 +11,7 @@
 #import "TNRadioButtonGroup.h"
 #import "TPKeyboardAvoidingScrollView.h"
 
-@interface SignupViewController : UIViewController
+@interface SignupViewController : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *maleBtn;
 @property (weak, nonatomic) IBOutlet UIButton *femaleBtn;
@@ -23,10 +23,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *fullNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 @property (weak, nonatomic) IBOutlet UITextField *countryTF;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImg;
 
 - (IBAction)femaleBtnAction:(id)sender;
 - (IBAction)termsBtnAction:(id)sender;
 - (IBAction)backBtnAction:(id)sender;
+- (IBAction)addPhotobtnAction:(id)sender;
 
 - (IBAction)maleBtnAction:(id)sender;
 - (IBAction)signupBtnAction:(id)sender;

@@ -56,4 +56,5 @@ BOOL BoolWithKey(NSString* key);
 +(void)saveAllEndorsementArrayInUserDefaults:(NSArray *)array;
 
 +(UIImage *)compressImage:(UIImage *)img WithSize:(CGSize)newSize;
++ (UIImage *)imageByCroppingImage:(UIImage *)image toSize:(CGSize)size;
 @end

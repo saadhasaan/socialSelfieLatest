@@ -19,6 +19,7 @@
     BOOL isFemalePressed;
     BOOL isMalePressed;
     BOOL isTermsPressed;
+    BOOL isPictureAdded;
     SocialSelfieAppDelegate * appDelegate;
 }
 @end
@@ -35,6 +36,7 @@
         isFemalePressed=NO;
         isMalePressed=YES;
         isTermsPressed=YES;
+        isPictureAdded=NO;
         appDelegate=(SocialSelfieAppDelegate *)[UIApplication sharedApplication].delegate;
     }
     return self;
@@ -45,6 +47,8 @@
     [super viewDidLoad];
     scrollView.scrollEnabled=YES;
     scrollView.contentSize=CGSizeMake(scrollView.frame.size.width,self.signUpBtn.frame.origin.y + self.signUpBtn.frame.size.height + 50);
+    
+    [UtilsFunctions makeUIImageViewRound:self.profileImg ANDRadius:2];
 
 }
 
@@ -91,6 +95,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)addPhotobtnAction:(id)sender {
+    UIActionSheet * actionSheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Gallery", nil];
+    [actionSheet showInView:self.view];
+}
+
 - (IBAction)maleBtnAction:(id)sender {
     if(isMalePressed){
         [maleBtn setImage:[UIImage imageNamed:@"check_btn_blank"] forState:UIControlStateNormal];
@@ -114,7 +123,12 @@
                 if ([self.emailTF.text length]>0) {
                     if ([self.countryTF.text length]>0) {
                         if (isTermsPressed) {
-                            [self signUpWebservice];
+                            if (isPictureAdded) {
+                                [self signUpWebservice];
+                            }
+                            else{
+                                ShowMessage(kAppName, @"Please add profile picture.");
+                            }
                         }
                         else{
                             ShowMessage(kAppName, @"Please accept terms and conditions.");
@@ -140,7 +154,53 @@
         ShowMessage(kAppName, @"Please enter username.");
     }
 }
-
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+    if (buttonIndex==0) {
+        UIImagePickerController * imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+//            [imagePickerController.navigationBar setTintColor:[UIColor colorWithRed:86.0/255.0 green:198.0/255.0 blue:160.0/255.0 alpha:1.0]];
+            [self presentViewController:imagePickerController animated:YES completion:nil];
+        }
+        else
+        {
+            ShowMessage(@"Error", @"Sorry! Camera is not available");
+        }
+    }
+    else if (buttonIndex==1) {
+        UIImagePickerController * imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//            [imagePickerController.navigationBar setTintColor:[UIColor colorWithRed:86.0/255.0 green:198.0/255.0 blue:160.0/255.0 alpha:1.0]];
+            [self presentViewController:imagePickerController animated:YES completion:nil];
+        }
+        else
+        {
+            ShowMessage(@"Error", @"Sorry! Photo Library is not available");
+        }
+    }
+}
+#pragma mark - UIImagePickerControllerDelegate
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *chosenImage =info[UIImagePickerControllerOriginalImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    if(chosenImage.size.width>320)
+    {
+        self.profileImg.image=[UtilsFunctions imageByCroppingImage:chosenImage toSize:CGSizeMake(320, 320)];
+    }
+    else{
+        self.profileImg.image=chosenImage;
+    }
+    isPictureAdded=YES;
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark:Webservices
 -(void)signUpWebservice{
 

@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLbl;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+@property (strong, nonatomic) IBOutlet UIImageView *tempImgView;
 
 - (IBAction)goToPhotosAction:(id)sender;
 - (IBAction)backAction:(id)sender;

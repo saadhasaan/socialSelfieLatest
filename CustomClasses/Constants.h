@@ -79,5 +79,7 @@
 #define kIsLoggedIn     @"isLoggedIn"
 #define kIsPushRegistered   @"pushregistered"
 #define kIsPushEnabled  @"isPushEnabled"
+#define kIsFriendReqAcceptAuto  @"isFriendReqAcceptAuto"
+#define kIsFriendReqDenyAuto    @"isFriendReqDenyAuto"
 #define kIsFriendReqEnabled  @"isFriendReqEnabled"
 

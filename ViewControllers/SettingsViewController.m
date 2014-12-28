@@ -39,10 +39,32 @@
         if ([GetStringWithKey(kIsPushEnabled)isEqualToString:@"NO"]) {
             [self.btnPushAlerts setSelected:YES];
         }
+        else{
+            [self.btnPushAlerts setSelected:NO];
+        }
+    }
+    if (GetStringWithKey(kIsFriendReqAcceptAuto)) {
+        if ([GetStringWithKey(kIsFriendReqAcceptAuto)isEqualToString:@"NO"]) {
+            [self.btnAcceptAllFreindReq setSelected:YES];
+        }
+        else{
+            [self.btnAcceptAllFreindReq setSelected:NO];
+        }
+    }
+    if (GetStringWithKey(kIsFriendReqDenyAuto)) {
+        if ([GetStringWithKey(kIsFriendReqDenyAuto)isEqualToString:@"NO"]) {
+            [self.btnDenyAllFriendReq setSelected:YES];
+        }
+        else{
+            [self.btnDenyAllFriendReq setSelected:NO];
+        }
     }
     if (GetStringWithKey(kIsFriendReqEnabled)) {
         if ([GetStringWithKey(kIsFriendReqEnabled)isEqualToString:@"NO"]) {
             [self.btndontNotifyFriendReq setSelected:YES];
+        }
+        else{
+            [self.btndontNotifyFriendReq setSelected:NO];
         }
     }
 }
@@ -247,10 +269,12 @@
 }
 
 - (IBAction)AcceptAllFriendReqPressed:(id)sender {
+    [self.btnAcceptAllFreindReq setSelected:!self.btnAcceptAllFreindReq.selected];
     [self acceptAllFriendReqWebservice];
 }
 
 - (IBAction)denyAllFriendReqPressed:(id)sender {
+    [self.btnDenyAllFriendReq setSelected:!self.btnDenyAllFriendReq.selected];
     [self denyAllFriendReqWebservice];
 }
 

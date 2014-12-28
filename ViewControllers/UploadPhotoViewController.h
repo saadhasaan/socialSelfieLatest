@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UploadPhotoViewController : UIViewController<UINavigationBarDelegate,UIImagePickerControllerDelegate>
+@interface UploadPhotoViewController : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 
 @property (strong,nonatomic)UIImage * mainImage;

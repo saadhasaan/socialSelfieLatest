@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "M13BadgeView.h"
+#import "SocialSelfieAppDelegate.h"
 
 @interface MyProfileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage;
 @property (weak, nonatomic) IBOutlet UILabel *myNameLbl;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 - (IBAction)backbtnAction:(id)sender;
 - (IBAction)goToMyPhotoesAction:(id)sender;

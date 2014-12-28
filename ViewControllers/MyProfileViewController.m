@@ -19,6 +19,8 @@
 @interface MyProfileViewController ()
 {
     NSMutableArray * mainFriendArray;
+    M13BadgeView *badgeView;
+    SocialSelfieAppDelegate * appDelegate;
 }
 @end
 
@@ -29,6 +31,7 @@
     self = [super initWithNibName:@"MyProfileViewController" bundle:nil];
     if (self) {
         mainFriendArray=[[NSMutableArray alloc]init];
+        appDelegate=(SocialSelfieAppDelegate*)[UIApplication sharedApplication].delegate;
     }
     return self;
 }
@@ -48,13 +51,26 @@
     }
     [UtilsFunctions makeUIImageViewRound:self.myImage ANDRadius:48];
     
+    [self initializeBadgeView];
     [self getAllFriendsWebservice];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    badgeView.text=[NSString stringWithFormat:@"%li",(long)[appDelegate getBadgeCount]];
+    badgeView.frame=CGRectMake(167, 0, 24, 24);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark: Custom Methods
+-(void)initializeBadgeView{
+    badgeView = [[M13BadgeView alloc] initWithFrame:CGRectMake(0,0, 24.0, 24.0)];
+    badgeView.text = @"0";
+    badgeView.font=[UIFont fontWithName:@"GillSans" size:12.0];
+    badgeView.frame=CGRectMake(167, 0, 24.0,24.0);
+    [self.bottomView addSubview:badgeView];
 }
 #pragma mark: UICollectionView Delegates and Datasource Methods
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
