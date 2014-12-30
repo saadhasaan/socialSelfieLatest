@@ -123,7 +123,12 @@
         self.userNameLbl.text=gelPic.userName;
         self.likeCountLbl.text=[NSString stringWithFormat:@"%li",(long)gelPic.likeCount];
         [self.userPicImgView setImageWithURL:[NSURL URLWithString:gelPic.userProfileImageURL]placeholderImage:[UIImage imageNamed:@"parallax_avatar"]];
-
+        if(gelPic.isLikedByMe){
+            [self.likeBtn setSelected:YES];
+        }
+        else{
+            [self.likeBtn setSelected:NO];
+        }
         currentIndex=index;
     }
 }

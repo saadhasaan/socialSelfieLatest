@@ -221,12 +221,6 @@
     else{
         [params setObject:@"female" forKey:kGender];
     }
-//    if (GetStringWithKey(kDeviceType)) {
-//        [params setObject:GetStringWithKey(kDeviceType) forKey:kDeviceType];
-//    }
-//    if (GetStringWithKey(kDeviceID)) {
-//        [params setObject:GetStringWithKey(kDeviceID) forKey:kDeviceID];
-//    }
     if (GetStringWithKey(kIsPushEnabled)) {
         if ([GetStringWithKey(kIsPushEnabled)isEqualToString:@"NO"]) {
             [params setObject:@"0" forKey:kNotificationStatus];
@@ -239,10 +233,18 @@
         [params setObject:@"1" forKey:kNotificationStatus];
     }
     [params setObject:kTaskSignUp forKey:kTask];
+    
+    NSData * imageData=UIImageJPEGRepresentation(self.profileImg.image, 0.1);
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [manager POST:kBaseURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    [manager POST:kBaseURL parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:kUploadedFile fileName:[NSString stringWithFormat: @"sharingImage%f.jpg", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+//    [manager POST:kBaseURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        NSString * string=[[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+
         NSDictionary * jsonDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
         NSLog(@"JSON: %@", jsonDict);
         if ([[jsonDict valueForKey:@"status"]integerValue]==1) {

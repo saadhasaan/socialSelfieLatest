@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString * userProfileImageURL;
 @property (nonatomic) NSInteger likeCount;
 @property (nonatomic, strong) NSString * userID;
+@property (nonatomic) BOOL isLikedByMe;
 
 -(GellaryPicture *) initWithDictionary:(NSDictionary*)dict;
 -(GellaryPicture *) initWithImageID:(NSString *)imgID;

@@ -60,6 +60,13 @@
                 self.userID=[dict valueForKey:@"userId"];
             }
         }
+        if([dict valueForKey:@"like"])
+        {
+            if(![[NSNull null]isEqual:[dict valueForKey:@"like"]])
+            {
+                self.isLikedByMe=[[dict valueForKey:@"like"]boolValue];
+            }
+        }
     }
     return  self;
 }
