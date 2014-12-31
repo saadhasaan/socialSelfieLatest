@@ -64,7 +64,12 @@
         {
             if(![[NSNull null]isEqual:[dict valueForKey:@"like"]])
             {
-                self.isLikedByMe=[[dict valueForKey:@"like"]boolValue];
+                if([[dict valueForKey:@"like"]integerValue]==1){
+                    self.isLikedByMe=YES;
+                }
+                else{
+                    self.isLikedByMe=NO;
+                }
             }
         }
     }

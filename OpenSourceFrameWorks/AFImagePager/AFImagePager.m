@@ -206,7 +206,7 @@
     _pageControl = [[UIPageControl alloc] initWithFrame:pageControlFrame];
     _pageControl.center = CGPointMake(_scrollView.frame.size.width/2, _scrollView.frame.size.height - 12);
     _pageControl.userInteractionEnabled = NO;
-    [self addSubview:_pageControl];
+//    [self addSubview:_pageControl]; By Saad to hide the bottom indicator
 }
 
 #pragma mark - ScrollView Delegate;

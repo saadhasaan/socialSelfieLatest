@@ -85,10 +85,17 @@
     self.likeCountLbl.text=[NSString stringWithFormat:@"%li",(long)gelPic.likeCount];
     currentIndex=0;
     [self.userPicImgView setImageWithURL:[NSURL URLWithString:gelPic.userProfileImageURL]placeholderImage:[UIImage imageNamed:@"parallax_avatar"]];
+    if(gelPic.isLikedByMe){
+        [self.likeBtn setSelected:YES];
+    }
+    else{
+        [self.likeBtn setSelected:NO];
+    }
 }
 -(void)updateLikeCountOfTheLikeObject{
     GellaryPicture * gelPic=[mainImgURLArray objectAtIndex:currentIndex];
     gelPic.likeCount+=1;
+    gelPic.isLikedByMe=YES;
     self.likeCountLbl.text=[NSString stringWithFormat:@"%li",(long)gelPic.likeCount];
 }
 #pragma mark - AFImagePager DataSource
@@ -184,7 +191,9 @@
     {
         SLComposeViewController *fbPostSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [fbPostSheet setInitialText:@"I like that picture very much on Central Selfie, please check that!"];
-        [fbPostSheet addURL:[NSURL URLWithString:[mainImgURLArray objectAtIndex:currentIndex]]];
+        GellaryPicture * gelP=[mainImgURLArray objectAtIndex:currentIndex];
+        NSURL * url=[NSURL URLWithString:gelP.imageURL];
+        [fbPostSheet addURL:url];
         
         [self presentViewController:fbPostSheet animated:YES completion:nil];
     } else
@@ -196,8 +205,10 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"TI like that picture very much on Central Selfie, please check that!"];
-        [tweetSheet addURL:[NSURL URLWithString:[mainImgURLArray objectAtIndex:currentIndex]]];
+        [tweetSheet setInitialText:@"I like that picture very much on Central Selfie, please check that!"];
+        GellaryPicture * gelP=[mainImgURLArray objectAtIndex:currentIndex];
+        NSURL * url=[NSURL URLWithString:gelP.imageURL];
+        [tweetSheet addURL:url];
 
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }

@@ -35,6 +35,9 @@
     [super viewDidLoad];
 
     [self loadMainArray];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if (GetStringWithKey(kIsPushEnabled)) {
         if ([GetStringWithKey(kIsPushEnabled)isEqualToString:@"NO"]) {
             [self.btnPushAlerts setSelected:YES];
@@ -44,7 +47,7 @@
         }
     }
     if (GetStringWithKey(kIsFriendReqAcceptAuto)) {
-        if ([GetStringWithKey(kIsFriendReqAcceptAuto)isEqualToString:@"NO"]) {
+        if ([GetStringWithKey(kIsFriendReqAcceptAuto)isEqualToString:@"YES"]) {
             [self.btnAcceptAllFreindReq setSelected:YES];
         }
         else{
@@ -52,7 +55,7 @@
         }
     }
     if (GetStringWithKey(kIsFriendReqDenyAuto)) {
-        if ([GetStringWithKey(kIsFriendReqDenyAuto)isEqualToString:@"NO"]) {
+        if ([GetStringWithKey(kIsFriendReqDenyAuto)isEqualToString:@"YES"]) {
             [self.btnDenyAllFriendReq setSelected:YES];
         }
         else{
@@ -60,13 +63,14 @@
         }
     }
     if (GetStringWithKey(kIsFriendReqEnabled)) {
-        if ([GetStringWithKey(kIsFriendReqEnabled)isEqualToString:@"NO"]) {
+        if ([GetStringWithKey(kIsFriendReqEnabled)isEqualToString:@"YES"]) {
             [self.btndontNotifyFriendReq setSelected:YES];
         }
         else{
             [self.btndontNotifyFriendReq setSelected:NO];
         }
     }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,7 +161,7 @@
         NSLog(@"Error: %@", error);
     }];
 }
--(void)acceptAllFriendReqWebservice{
+-(void)enableAcceptAllFriendReqWebservice{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
@@ -170,7 +174,7 @@
     [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([[responseObject valueForKey:@"statusCode"]integerValue]==9000){
-            ShowMessage(kAppName,@"ALL Friend request has been accepted successfully.");
+            ShowMessage(kAppName,@"Accept all Friend request has been enabled successfully.");
         }
         else if([[responseObject valueForKey:@"statusCode"]integerValue]==9001){
             ShowMessage(kAppName, @"Unable to update the record.");
@@ -180,8 +184,30 @@
         NSLog(@"Error: %@", error);
     }];
 }
+-(void)disableAcceptAllFriendReqWebservice{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:kTaskDisableAllFriendRequest forKey:kTask];
+    if (GetStringWithKey(kUserID)) {
+        [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
+    }
 
--(void)denyAllFriendReqWebservice{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if ([[responseObject valueForKey:@"statusCode"]integerValue]==11000){
+            ShowMessage(kAppName,@"Accept all Friend request has been disable successfully.");
+        }
+        else if([[responseObject valueForKey:@"statusCode"]integerValue]==11001){
+            ShowMessage(kAppName, @"Unable to update the record.");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"Error: %@", error);
+    }];
+}
+-(void)enableDenyAllFriendReqWebservice{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
@@ -194,7 +220,7 @@
     [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([[responseObject valueForKey:@"statusCode"]integerValue]==10000){
-            ShowMessage(kAppName,@"ALL Friend request has been denied successfully.");
+            ShowMessage(kAppName,@"Deny all Friend request has been enabled successfully.");
         }
         else if([[responseObject valueForKey:@"statusCode"]integerValue]==10001){
             ShowMessage(kAppName, @"Unable to update the record.");
@@ -204,6 +230,30 @@
         NSLog(@"Error: %@", error);
     }];
 }
+-(void)disableDenyAllFriendReqWebservice{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:kTaskDisableDenytAllFriendRequest forKey:kTask];
+    if (GetStringWithKey(kUserID)) {
+        [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager POST:kBaseURLUser parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if ([[responseObject valueForKey:@"statusCode"]integerValue]==12000){
+            ShowMessage(kAppName,@"Deny all Friend request has been disabled successfully.");
+        }
+        else if([[responseObject valueForKey:@"statusCode"]integerValue]==12001){
+            ShowMessage(kAppName, @"Unable to update the record.");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 -(void)disableFriendReqWebservice{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -270,23 +320,37 @@
 
 - (IBAction)AcceptAllFriendReqPressed:(id)sender {
     [self.btnAcceptAllFreindReq setSelected:!self.btnAcceptAllFreindReq.selected];
-    [self acceptAllFriendReqWebservice];
+    if (!self.btnAcceptAllFreindReq.selected) {
+        [self enableAcceptAllFriendReqWebservice];
+        SaveStringWithKey(@"YES",kIsFriendReqAcceptAuto);
+    }
+    else{
+        [self disableAcceptAllFriendReqWebservice];
+        SaveStringWithKey(@"NO",kIsFriendReqAcceptAuto);
+    }
 }
 
 - (IBAction)denyAllFriendReqPressed:(id)sender {
     [self.btnDenyAllFriendReq setSelected:!self.btnDenyAllFriendReq.selected];
-    [self denyAllFriendReqWebservice];
+    if (!self.btnDenyAllFriendReq.selected) {
+        [self enableDenyAllFriendReqWebservice];
+        SaveStringWithKey(@"YES", kIsFriendReqDenyAuto);
+    }
+    else{
+        [self disableDenyAllFriendReqWebservice];
+        SaveStringWithKey(@"NO", kIsFriendReqDenyAuto);
+    }
 }
 
 - (IBAction)denyAllNotificationFriendNotifications:(id)sender {
     [self.btndontNotifyFriendReq setSelected:!self.btndontNotifyFriendReq.selected];
-    if (self.btndontNotifyFriendReq.selected) {
-        [self disableFriendReqWebservice];
-        SaveStringWithKey(@"NO", kIsPushEnabled);
-    }
-    else{
+    if (!self.btndontNotifyFriendReq.selected) {
         [self enableFriendReqWebservice];
         SaveStringWithKey(@"YES", kIsPushEnabled);
+    }
+    else{
+        [self disableFriendReqWebservice];
+        SaveStringWithKey(@"NO", kIsPushEnabled);
     }
 
 }

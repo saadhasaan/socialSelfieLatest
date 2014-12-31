@@ -90,7 +90,7 @@
     if (mainImgURLArray.count>=index) {
         GellaryPicture * gelPic=[mainImgURLArray objectAtIndex:index];
         self.userNameLbl.text=gelPic.userName;
-        self.likeCountLbl.text=[NSString stringWithFormat:@"%i",gelPic.likeCount];
+        self.likeCountLbl.text=[NSString stringWithFormat:@"%li",(long)gelPic.likeCount];
         [self.userPicImgView setImageWithURL:[NSURL URLWithString:gelPic.userProfileImageURL]];
     }
 }
