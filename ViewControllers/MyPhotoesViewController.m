@@ -23,6 +23,7 @@
     SharePopUpView * sharePopUpView;
     BOOL isSharePopUpViewPresent;
     PhotoAddedType dateType;
+    NSInteger selectedPhotoTag;
 }
 @end
 
@@ -116,16 +117,18 @@
         cell = (MyPhotoCell*)[nibArray objectAtIndex:0];
     }
     [cell loadDataWithImageURL:photoObj];
+    cell.tag=indexPath.row;
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     cell.delegate=self;
     return cell;
 }
 #pragma mark:MyPhotoCellDelegate
--(void)gotoCommentsDetailForPhotoID:(NSString *)photoID{
+-(void)gotoCommentsDetailForPhotoID:(NSString* )photoID{
     CommentsViewController * commentVC=[[CommentsViewController alloc]initWithImageID:photoID];
     [self.navigationController pushViewController:commentVC animated:YES];
 }
--(void)gotoShareForPhotoID:(NSString *)photoID{
+-(void)gotoShareForPhotoID:(NSInteger )cellTag{
+    selectedPhotoTag=cellTag;
     if (!isSharePopUpViewPresent) {
         isSharePopUpViewPresent=YES;
         [self.view addSubview:sharePopUpView];
@@ -135,15 +138,37 @@
         [sharePopUpView removeFromSuperview];
     }
 }
--(void)gotoLikesDetailForPhotoID:(NSString *)photoID{
+-(void)gotoLikesDetailForPhotoID:(NSInteger )cellTag{
     
 }
 #pragma mark:SharePopUpViewDelegate
+-(MyPhotoesPic *)getThePhotoObjectWithPhotoID{
+    MyPhotoesPic * photoObj;
+    if (dateType==Recent) {
+        if (mainArrayRecent.count<selectedPhotoTag) {
+            photoObj=[mainArrayRecent objectAtIndex:selectedPhotoTag];
+        }
+    }
+    else if(dateType==Yesterday){
+        if(mainArrayYesterday.count<selectedPhotoTag){
+            photoObj=[mainArrayYesterday objectAtIndex:selectedPhotoTag];
+        }
+    }
+    else{
+        if (mainArray.count<selectedPhotoTag) {
+            photoObj=[mainArray objectAtIndex:selectedPhotoTag];
+        }
+    }
+    return photoObj;
+}
 -(void)shareFBButtonHasBeenPressed{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
         SLComposeViewController *fbPostSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [fbPostSheet setInitialText:@"This is a Facebook post!"];
+        MyPhotoesPic * photoObj=[self getThePhotoObjectWithPhotoID];
+        if (photoObj) {
+            [fbPostSheet setInitialText:[NSString stringWithFormat:@"I like that picture very much on Central Selfie and this picture get %li likes & %li comments, please check that",(long)photoObj.likeCount,(long)photoObj.commentCount]];
+        }
         
         [self presentViewController:fbPostSheet animated:YES completion:nil];
     } else
@@ -155,7 +180,10 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"This is a tweet!"];
+        MyPhotoesPic * photoObj=[self getThePhotoObjectWithPhotoID];
+        if (photoObj) {
+            [tweetSheet setInitialText:[NSString stringWithFormat:@"I like that picture very much on Central Selfie and this picture get %li likes & %li comments, please check that",(long)photoObj.likeCount,(long)photoObj.commentCount]];
+        }
         [self presentViewController:tweetSheet animated:YES completion:nil];
         
     }

@@ -168,7 +168,7 @@
                             <rect key="frame" x="105" y="8" width="108" height="108"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sxT-yc-u7c">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parallax_avatar.png" id="sxT-yc-u7c">
                             <rect key="frame" x="107" y="10" width="104" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -200,6 +200,7 @@
         <image name="check_btn.png" width="22" height="22"/>
         <image name="check_btn_blank.png" width="22" height="22"/>
         <image name="friend_pic_fram.png" width="54" height="54"/>
+        <image name="parallax_avatar.png" width="160" height="131"/>
         <image name="signup-button-pressed.png" width="206" height="33"/>
         <image name="signup-button.png" width="206" height="33"/>
     </resources>

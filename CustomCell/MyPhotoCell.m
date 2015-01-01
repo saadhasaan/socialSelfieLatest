@@ -36,11 +36,14 @@
     
     [self.imgView setImageWithURL:[NSURL URLWithString:picData.imageURL]];
     self.lblLikeCOunt.text=[NSString stringWithFormat:@"%li",(long)picData.likeCount];
+    if (picData.likeCount>0){
+        [self.btnLike setImage:[UIImage imageNamed:@"hart_pressed_state"] forState:UIControlStateNormal];
+    }
     self.lblCommentCount.text=[NSString stringWithFormat:@"%li",(long)picData.commentCount];
     self.picID=picData.imageID;
 }
 - (IBAction)likeBtnAction:(id)sender {
-    [delegate gotoLikesDetailForPhotoID:self.picID];
+    [delegate gotoLikesDetailForPhotoID:self.tag];
 }
 
 - (IBAction)commentBtnAction:(id)sender {
@@ -48,6 +51,6 @@
 }
 
 - (IBAction)shareBtnAction:(id)sender {
-    [delegate gotoShareForPhotoID:self.picID];
+    [delegate gotoShareForPhotoID:self.tag];
 }
 @end

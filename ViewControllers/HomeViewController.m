@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "HomeCollectionCell.h"
 #import "MensGalleryViewController.h"
-#import "WoMensGalleryViewController.h"
+#import "WomenGallerVC.h"
 #import "Constants.h"
 #import "UtilsFunctions.h"
 #import "UploadPhotoViewController.h"
@@ -111,7 +111,7 @@
         [self.navigationController pushViewController:mensGalleryVC animated:YES];
     }
     else if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kWomenGallery]){
-        WoMensGalleryViewController * womensGalleryVC=[[WoMensGalleryViewController alloc]init];
+        WomenGallerVC * womensGalleryVC=[[WomenGallerVC alloc]init];
         [self.navigationController pushViewController:womensGalleryVC animated:YES];
     }
     else if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kMyProfile]){

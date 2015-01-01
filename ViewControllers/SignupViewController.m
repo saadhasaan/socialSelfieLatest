@@ -49,7 +49,6 @@
     scrollView.contentSize=CGSizeMake(scrollView.frame.size.width,self.signUpBtn.frame.origin.y + self.signUpBtn.frame.size.height + 50);
     
     [UtilsFunctions makeUIImageViewRound:self.profileImg ANDRadius:2];
-
 }
 
 - (void)didReceiveMemoryWarning

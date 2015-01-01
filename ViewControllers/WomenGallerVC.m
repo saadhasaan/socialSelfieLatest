@@ -1,12 +1,12 @@
 //
-//  MensGalleryViewController.m
+//  WomenGallerVC.m
 //  SocialSelfie
 //
 //  Created by Saad Khan on 18/10/2014.
 //  Copyright (c) 2014 SocialSelfie. All rights reserved.
 //
 
-#import "MensGalleryViewController.h"
+#import "WomenGallerVC.h"
 #import "CommentsViewController.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
@@ -16,7 +16,7 @@
 #import "GellaryPicture.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface MensGalleryViewController ()
+@interface WomenGallerVC ()
 {
     SharePopUpView * sharePopUpView;
     BOOL isSharePopUpViewPresent;
@@ -25,11 +25,11 @@
 }
 @end
 
-@implementation MensGalleryViewController
+@implementation WomenGallerVC
 
 - (id)init
 {
-    self = [super initWithNibName:@"MensGalleryViewController" bundle:nil];
+    self = [super initWithNibName:@"WomenGallerVC" bundle:nil];
     if (self) {
         sharePopUpView=[[SharePopUpView alloc]init];
         sharePopUpView.frame=CGRectMake(0, self.view.frame.size.height-130-100,sharePopUpView.frame.size.width, sharePopUpView.frame.size.height);
@@ -217,6 +217,7 @@
     {
         ShowMessage(kAppName, @"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup");
     }
+
 }
 -(void)closeSharePopUpViewButtonHasBeenPressed{
     isSharePopUpViewPresent=NO;
@@ -300,7 +301,7 @@
         [params setObject:GetStringWithKey(kUserID) forKey:kUserID];
     }
     
-    [params setObject:kTaskGetAllMaleImages forKey:kTask];
+    [params setObject:kTaskGetAllFemaleImages forKey:kTask];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [manager POST:kBaseURLImages parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -85,6 +85,7 @@
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnLike" destination="ukS-sX-uMt" id="Fgo-WT-kPC"/>
                 <outlet property="imgView" destination="Q3T-Ns-yVN" id="VXy-PU-4Dm"/>
                 <outlet property="lblCommentCount" destination="wG2-Y9-uqE" id="3OB-bI-7U7"/>
                 <outlet property="lblLikeCOunt" destination="dbU-l6-1Y4" id="88b-Cy-mAP"/>

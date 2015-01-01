@@ -244,6 +244,9 @@
 		55DF91EA19FEF06300DB21DB /* TNRadioButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91DE19FEF06300DB21DB /* TNRadioButtonGroup.m */; };
 		55DF91EB19FEF06300DB21DB /* TNRectangularRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91E119FEF06300DB21DB /* TNRectangularRadioButton.m */; };
 		55DF91EC19FEF06300DB21DB /* TNRectangularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91E319FEF06300DB21DB /* TNRectangularRadioButtonData.m */; };
+		55EEF4A81A559C7E00186BFB /* WomenGallerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EEF4A51A559C7E00186BFB /* WomenGallerVC.xib */; };
+		55EEF4A91A559C7E00186BFB /* WomenGallerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EEF4A61A559C7E00186BFB /* WomenGallerVC.m */; };
+		55EEF4AB1A55C7E100186BFB /* hart_pressed_state@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EEF4AA1A55C7E000186BFB /* hart_pressed_state@2x.png */; };
 		790E147B1A42F4C900236DDB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790E14791A42F4C900236DDB /* SettingsViewController.m */; };
 		790E147C1A42F4C900236DDB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790E147A1A42F4C900236DDB /* SettingsViewController.xib */; };
 		790E14851A42F53300236DDB /* check_icon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E147E1A42F53300236DDB /* check_icon_large@2x.png */; };
@@ -608,6 +611,10 @@
 		55DF91E119FEF06300DB21DB /* TNRectangularRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButton.m; sourceTree = "<group>"; };
 		55DF91E219FEF06300DB21DB /* TNRectangularRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularRadioButtonData.h; sourceTree = "<group>"; };
 		55DF91E319FEF06300DB21DB /* TNRectangularRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButtonData.m; sourceTree = "<group>"; };
+		55EEF4A51A559C7E00186BFB /* WomenGallerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WomenGallerVC.xib; sourceTree = "<group>"; };
+		55EEF4A61A559C7E00186BFB /* WomenGallerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WomenGallerVC.m; sourceTree = "<group>"; };
+		55EEF4A71A559C7E00186BFB /* WomenGallerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WomenGallerVC.h; sourceTree = "<group>"; };
+		55EEF4AA1A55C7E000186BFB /* hart_pressed_state@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hart_pressed_state@2x.png"; sourceTree = "<group>"; };
 		790E14781A42F4C900236DDB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		790E14791A42F4C900236DDB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		790E147A1A42F4C900236DDB /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -1237,6 +1244,9 @@
 				55693BD719F1C81F00106D17 /* MensGalleryViewController.h */,
 				55693BD819F1C81F00106D17 /* MensGalleryViewController.m */,
 				55693BD919F1C81F00106D17 /* MensGalleryViewController.xib */,
+				55EEF4A71A559C7E00186BFB /* WomenGallerVC.h */,
+				55EEF4A61A559C7E00186BFB /* WomenGallerVC.m */,
+				55EEF4A51A559C7E00186BFB /* WomenGallerVC.xib */,
 				55BBE5481A0FE2A600C64AB3 /* WoMensGalleryViewController.h */,
 				55BBE54A1A0FE2A600C64AB3 /* WoMensGalleryViewController.m */,
 				55BBE5491A0FE2A600C64AB3 /* WoMensGalleryViewController.xib */,
@@ -1281,6 +1291,7 @@
 				55883D4B19B22D0B0037D145 /* login */,
 				55CEFCBE19A8CFDF0092CA6F /* wibiz.png */,
 				55CEFCBF19A8CFDF0092CA6F /* wibiz@2x.png */,
+				55EEF4AA1A55C7E000186BFB /* hart_pressed_state@2x.png */,
 			);
 			path = Slices;
 			sourceTree = "<group>";
@@ -1535,6 +1546,7 @@
 				55883D7119B2323B0037D145 /* signup-button@2x.png in Resources */,
 				553A03141A15473800A6894A /* right_icon@2x.png in Resources */,
 				55CEFC9C19A8ACE50092CA6F /* egopv_left.png in Resources */,
+				55EEF4AB1A55C7E100186BFB /* hart_pressed_state@2x.png in Resources */,
 				553A02FD1A153A1A00A6894A /* FriendCell.xib in Resources */,
 				55DF918D19FEDC3500DB21DB /* commentes_icon@2x.png in Resources */,
 				556FCFF21A02D6B200634508 /* KICamera.png in Resources */,
@@ -1568,6 +1580,7 @@
 				55693BDB19F1C81F00106D17 /* MensGalleryViewController.xib in Resources */,
 				55DF91C219FEE42600DB21DB /* recent_btn_pressed@2x.png in Resources */,
 				55CEFC9819A8ACE50092CA6F /* egopv_error_placeholder.png in Resources */,
+				55EEF4A81A559C7E00186BFB /* WomenGallerVC.xib in Resources */,
 				55DF919619FEDC3500DB21DB /* top_pic_icon@2x.png in Resources */,
 				55CEFC9F19A8ACE50092CA6F /* egopv_photo_placeholder.png in Resources */,
 				556DCF551A175DBB006F9977 /* accept_btn@2x.png in Resources */,
@@ -1737,6 +1750,7 @@
 				55883D7519B232680037D145 /* SignupViewController.m in Sources */,
 				55DF91E819FEF06300DB21DB /* TNRadioButton.m in Sources */,
 				55CEFC9019A8ACE50092CA6F /* EGOCache.m in Sources */,
+				55EEF4A91A559C7E00186BFB /* WomenGallerVC.m in Sources */,
 				555A4B181A090323002F1A3C /* FBLogin.m in Sources */,
 				55CEFBCA19A8ABF00092CA6F /* main.m in Sources */,
 				55CEFBCE19A8ABF00092CA6F /* SocialSelfieAppDelegate.m in Sources */,

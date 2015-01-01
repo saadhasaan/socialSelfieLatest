@@ -122,12 +122,9 @@
 
 - (IBAction)goToLikeAction:(id)sender {
 }
-#pragma mark:SharePopUpViewDelegate
 -(void)shareFBButtonHasBeenPressed{
-    
 }
--(void)shareTWButtonHasBeenPressed{
-    
+-(void)shareTWButtonHasBeenPressed{    
 }
 -(void)closeSharePopUpViewButtonHasBeenPressed{
     isSharePopUpViewPresent=NO;

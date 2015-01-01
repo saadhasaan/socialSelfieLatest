@@ -10,9 +10,9 @@
 #import "MyPhotoesPic.h"
 
 @protocol MyPhotoCellDelegate
--(void)gotoLikesDetailForPhotoID:(NSString *)photoID;
--(void)gotoCommentsDetailForPhotoID:(NSString *)photoID;
--(void)gotoShareForPhotoID:(NSString *)photoID;
+-(void)gotoLikesDetailForPhotoID:(NSInteger)tagIndex;
+-(void)gotoCommentsDetailForPhotoID:(NSString * )photoID;
+-(void)gotoShareForPhotoID:(NSInteger)tagIndex;
 @end
 
 
@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblShare;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (strong, nonatomic)NSString * picID;
+@property (weak, nonatomic) IBOutlet UIButton *btnLike;
 
 -(void)loadDataWithImageURL:(MyPhotoesPic *)picData;
 
