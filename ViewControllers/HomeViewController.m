@@ -35,7 +35,7 @@
     self = [super initWithNibName:@"HomeViewController" bundle:nil];
     if (self) {
         mainArray=[[NSMutableArray alloc]init];
-        imgIconArray=[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:@"mens_gallery_icon",@"womens_gallery_icon",@"upload_photo",@"take_photo",@"my_photos",@"my_profile",@"my_alerts_icon",@"chat_icon",@"settings_icon", nil]];
+        imgIconArray=[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:@"mens_gallery_icon",@"womens_gallery_icon",@"upload_photo",@"take_photo",@"my_photos",@"my_profile",@"my_alerts_icon",@"settings_icon", nil]];//,@"chat_icon"
         appDelegate=(SocialSelfieAppDelegate*)[UIApplication sharedApplication].delegate;
     }
     return self;
@@ -75,7 +75,7 @@
     [mainArray addObject:kMyPhoto];
     [mainArray addObject:kMyProfile];
     [mainArray addObject:kMyAlerts];
-    [mainArray addObject:kChat];
+//    [mainArray addObject:kChat];
     [mainArray addObject:kSettings];
 }
 -(void)moveToUploadVCWithImage:(UIImage *)img{

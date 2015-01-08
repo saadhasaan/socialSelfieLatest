@@ -242,7 +242,7 @@
     [manager POST:kBaseURLImages parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([[responseObject valueForKey:kStatusCode]integerValue]==12000) {
-            ShowMessage(kAppName, @"HOT");
+//            ShowMessage(kAppName, @"HOT");
             [self updateLikeCountOfTheLikeObject];
         }
         if ([[responseObject valueForKey:kStatusCode]integerValue]==12001) {
