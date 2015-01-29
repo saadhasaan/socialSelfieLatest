@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "HomeViewController.h"
 #import "SocialSelfieAppDelegate.h"
+#import "HFViewController.h"
 
 #define facebookKey @"1492084591036761"
 @interface MainLoginViewController (){
@@ -114,14 +115,18 @@
     [self.navigationController pushViewController:homeVC animated:YES];
 }
 - (IBAction)facebookBtnAction:(id)sender {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    if (!fbLogin) {
-        fbLogin=[[FBLogin alloc]initWithKey:facebookKey];
-        fbLogin.delegate=self;
-    }
-    else{
-        [fbLogin facebookAccountInit];
-    }
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    if (!fbLogin) {
+//        fbLogin=[[FBLogin alloc]initWithKey:facebookKey];
+//        fbLogin.delegate=self;
+//    }
+//    else{
+//        [fbLogin facebookAccountInit];
+//    }
+    
+        HFViewController * hfVC = [[HFViewController alloc] init];
+        [self.navigationController pushViewController:hfVC animated:YES];
+
 }
 
 - (IBAction)twitterBtnPressed:(id)sender {

@@ -256,6 +256,15 @@
 		790E14891A42F53300236DDB /* twitter_facebook_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14821A42F53300236DDB /* twitter_facebook_icon@2x.png */; };
 		790E148A1A42F53300236DDB /* uncheck_icon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14831A42F53300236DDB /* uncheck_icon_large@2x.png */; };
 		790E148B1A42F53300236DDB /* uncheck_icon_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E14841A42F53300236DDB /* uncheck_icon_small@2x.png */; };
+		795875401A79FBBA008E6505 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7958753F1A79FBBA008E6505 /* FacebookSDK.framework */; };
+		795875461A79FCAC008E6505 /* HFViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795875421A79FCAC008E6505 /* HFViewController_iPad.xib */; };
+		795875471A79FCAC008E6505 /* HFViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795875431A79FCAC008E6505 /* HFViewController_iPhone.xib */; };
+		795875481A79FCAC008E6505 /* HFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 795875451A79FCAC008E6505 /* HFViewController.m */; };
+		7958754A1A79FE75008E6505 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795875491A79FE75008E6505 /* CoreLocation.framework */; };
+		795875521A7A034F008E6505 /* Application.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7958754E1A7A034F008E6505 /* Application.xcconfig */; };
+		795875531A7A034F008E6505 /* Project-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7958754F1A7A034F008E6505 /* Project-Debug.xcconfig */; };
+		795875541A7A034F008E6505 /* Project-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 795875501A7A034F008E6505 /* Project-Release.xcconfig */; };
+		795875551A7A034F008E6505 /* Project.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 795875511A7A034F008E6505 /* Project.xcconfig */; };
 		79FE09FF1A4A9E8200845D64 /* M13BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FE09FE1A4A9E8200845D64 /* M13BadgeView.m */; };
 /* End PBXBuildFile section */
 
@@ -625,6 +634,16 @@
 		790E14821A42F53300236DDB /* twitter_facebook_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_facebook_icon@2x.png"; sourceTree = "<group>"; };
 		790E14831A42F53300236DDB /* uncheck_icon_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck_icon_large@2x.png"; sourceTree = "<group>"; };
 		790E14841A42F53300236DDB /* uncheck_icon_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck_icon_small@2x.png"; sourceTree = "<group>"; };
+		7958753F1A79FBBA008E6505 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		795875421A79FCAC008E6505 /* HFViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFViewController_iPad.xib; sourceTree = "<group>"; };
+		795875431A79FCAC008E6505 /* HFViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFViewController_iPhone.xib; sourceTree = "<group>"; };
+		795875441A79FCAC008E6505 /* HFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFViewController.h; sourceTree = "<group>"; };
+		795875451A79FCAC008E6505 /* HFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFViewController.m; sourceTree = "<group>"; };
+		795875491A79FE75008E6505 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7958754E1A7A034F008E6505 /* Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Application.xcconfig; sourceTree = "<group>"; };
+		7958754F1A7A034F008E6505 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		795875501A7A034F008E6505 /* Project-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
+		795875511A7A034F008E6505 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		79FE09FD1A4A9E8200845D64 /* M13BadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13BadgeView.h; sourceTree = "<group>"; };
 		79FE09FE1A4A9E8200845D64 /* M13BadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13BadgeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -634,6 +653,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7958754A1A79FE75008E6505 /* CoreLocation.framework in Frameworks */,
+				795875401A79FBBA008E6505 /* FacebookSDK.framework in Frameworks */,
 				5571534F1A043A4500C49EAE /* CFNetwork.framework in Frameworks */,
 				5571534D1A043A3800C49EAE /* SystemConfiguration.framework in Frameworks */,
 				5571534B1A043A2700C49EAE /* MobileCoreServices.framework in Frameworks */,
@@ -838,6 +859,7 @@
 		55CEFBB119A8ABF00092CA6F = {
 			isa = PBXGroup;
 			children = (
+				7958754D1A7A034F008E6505 /* Configurations */,
 				55693BD619F1C23600106D17 /* CustomClasses */,
 				55693BD019F1BFC800106D17 /* CustomCells */,
 				55CEFCBD19A8CFDF0092CA6F /* Slices */,
@@ -862,6 +884,8 @@
 		55CEFBBC19A8ABF00092CA6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				795875491A79FE75008E6505 /* CoreLocation.framework */,
+				7958753F1A79FBBA008E6505 /* FacebookSDK.framework */,
 				5571534E1A043A4500C49EAE /* CFNetwork.framework */,
 				5571534C1A043A3800C49EAE /* SystemConfiguration.framework */,
 				5571534A1A043A2700C49EAE /* MobileCoreServices.framework */,
@@ -1268,6 +1292,10 @@
 				790E14781A42F4C900236DDB /* SettingsViewController.h */,
 				790E14791A42F4C900236DDB /* SettingsViewController.m */,
 				790E147A1A42F4C900236DDB /* SettingsViewController.xib */,
+				795875441A79FCAC008E6505 /* HFViewController.h */,
+				795875451A79FCAC008E6505 /* HFViewController.m */,
+				795875421A79FCAC008E6505 /* HFViewController_iPad.xib */,
+				795875431A79FCAC008E6505 /* HFViewController_iPhone.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1422,6 +1450,17 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
+		7958754D1A7A034F008E6505 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				7958754E1A7A034F008E6505 /* Application.xcconfig */,
+				7958754F1A7A034F008E6505 /* Project-Debug.xcconfig */,
+				795875501A7A034F008E6505 /* Project-Release.xcconfig */,
+				795875511A7A034F008E6505 /* Project.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		79FE09FC1A4A9E8200845D64 /* M13BadgeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1521,6 +1560,7 @@
 				55CEFCB919A8AD580092CA6F /* CenterMainViewController.xib in Resources */,
 				55DF91CE19FEEF4700DB21DB /* check_btn@2x.png in Resources */,
 				55DF917D19FED60500DB21DB /* take_photo@2x.png in Resources */,
+				795875541A7A034F008E6505 /* Project-Release.xcconfig in Resources */,
 				55CEFC9B19A8ACE50092CA6F /* egopv_fullscreen_button@2x.png in Resources */,
 				55BBE5431A0FBE8B00C64AB3 /* no_pic_background@2x.png in Resources */,
 				55DF919419FEDC3500DB21DB /* shear_icon@2x.png in Resources */,
@@ -1609,6 +1649,7 @@
 				790E148A1A42F53300236DDB /* uncheck_icon_large@2x.png in Resources */,
 				55682FDC1A001A34000F1142 /* twitter_button@2x.png in Resources */,
 				55DF91A519FEE1B800DB21DB /* MyPhotoesViewController.xib in Resources */,
+				795875471A79FCAC008E6505 /* HFViewController_iPhone.xib in Resources */,
 				553A030D1A15473800A6894A /* profile_background@2x.png in Resources */,
 				790E14851A42F53300236DDB /* check_icon_large@2x.png in Resources */,
 				790E14861A42F53300236DDB /* check_icon_small@2x.png in Resources */,
@@ -1617,6 +1658,7 @@
 				55DF91BC19FEE42600DB21DB /* back_arrow@2x.png in Resources */,
 				55DF919219FEDC3500DB21DB /* my_photo_icon_hover@2x.png in Resources */,
 				553A03161A15473800A6894A /* status_idel@2x.png in Resources */,
+				795875531A7A034F008E6505 /* Project-Debug.xcconfig in Resources */,
 				55CEFCA119A8ACE50092CA6F /* egopv_right.png in Resources */,
 				55682FD91A001A34000F1142 /* q_icon@2x.png in Resources */,
 				55DF91C419FEE42600DB21DB /* yesterday_btn@2x.png in Resources */,
@@ -1629,10 +1671,13 @@
 				55BBE5511A0FE88100C64AB3 /* Default@2x.png in Resources */,
 				55DF919019FEDC3500DB21DB /* like_icon_hover@2x.png in Resources */,
 				556DCF651A17687E006F9977 /* parallax_avatar@2x.png in Resources */,
+				795875551A7A034F008E6505 /* Project.xcconfig in Resources */,
+				795875521A7A034F008E6505 /* Application.xcconfig in Resources */,
 				556DCF591A175DBB006F9977 /* reject_btn@2x.png in Resources */,
 				55DF917719FED60500DB21DB /* mens_gallery_icon@2x.png in Resources */,
 				55883D6319B22D0B0037D145 /* user-password@2x.png in Resources */,
 				55883D5D19B22D0B0037D145 /* background-login@2x.png in Resources */,
+				795875461A79FCAC008E6505 /* HFViewController_iPad.xib in Resources */,
 				55BBE5461A0FC3DD00C64AB3 /* my_photo_commentes_icon@2x.png in Resources */,
 				556DCF581A175DBB006F9977 /* recieve_requests_pressed@2x.png in Resources */,
 				55DF917F19FED60500DB21DB /* womens_gallery_icon@2x.png in Resources */,
@@ -1760,6 +1805,7 @@
 				55CEFC8B19A8ACE50092CA6F /* UIAlertView+AFNetworking.m in Sources */,
 				55CEFCA319A8ACE50092CA6F /* EGOPhotoCaptionView.m in Sources */,
 				790E147B1A42F4C900236DDB /* SettingsViewController.m in Sources */,
+				795875481A79FCAC008E6505 /* HFViewController.m in Sources */,
 				55DF91EC19FEF06300DB21DB /* TNRectangularRadioButtonData.m in Sources */,
 				55CEFCA919A8ACE50092CA6F /* NSString+SBJSON.m in Sources */,
 				555A4B1C1A090653002F1A3C /* FBUserSelf.m in Sources */,
@@ -1884,6 +1930,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Junaid Ahmed (4KKW56E4P2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialSelfie/SocialSelfie-Prefix.pch";
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
@@ -1900,6 +1950,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Junaid Ahmed (4KKW56E4P2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialSelfie/SocialSelfie-Prefix.pch";
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
