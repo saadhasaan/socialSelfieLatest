@@ -20,6 +20,8 @@
     FBLogin * fbLogin;
     TWLogin * twLogin;
     SocialSelfieAppDelegate * appDelegate;
+    FacebookManager *fbManager;
+    NSArray * permissionsArray;
 }
 
 @end
@@ -124,9 +126,10 @@
 //        [fbLogin facebookAccountInit];
 //    }
     
-        HFViewController * hfVC = [[HFViewController alloc] init];
-        [self.navigationController pushViewController:hfVC animated:YES];
-
+//    HFViewController * hfVC = [[HFViewController alloc] init];
+//    [self.navigationController pushViewController:hfVC animated:YES];
+    
+    [self shareOnSocialMedia:nil];
 }
 
 - (IBAction)twitterBtnPressed:(id)sender {
@@ -139,7 +142,85 @@
     }
     twLogin.delegate=self;
 }
+- (void)shareOnSocialMedia:(NSDictionary *)params
+{
+    
+    fbManager = [FacebookManager sharedManager];
+    if (!permissionsArray) {
+        permissionsArray = [[NSArray alloc] initWithObjects:@"public_profile", nil];
+        
+    }
+    [fbManager permissions:permissionsArray];
+    
+    [fbManager openSessionCompletionHandler:^(NSError *error) {
+        
+        if (error == nil)
+        {
+            //   [DejalBezelActivityView removeViewAnimated:YES];
+            
+            [fbManager populateUserDetailsWithCompletionHandler:^(FBUser *user,NSError* error){
+                
+                if (error == nil)
+                {
 
+//                    customerInfo.facebookID = user.fId;
+//                    customerInfo.facebookName = [self.fbManager getName];
+                }
+                
+            }];
+            
+//            [fbLoginView removeFromSuperview];
+            
+//            sorryLabel.hidden = YES;
+//            animatedImage.hidden = NO;
+//            [self runAnimation];
+            
+//            [self.view addSubview:loadingView];
+//            loadingView.center = self.view.center;
+            
+        }
+        else
+        {
+            BOOL isError = [FBErrorUtility shouldNotifyUserForError:error];
+            
+            if (isError)
+            {
+                NSString * userErrorMsg = [FBErrorUtility userMessageForError:error];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:userErrorMsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                
+                [alert show];
+            }
+            else
+            {
+                FBErrorCategory userErrorCategory = [FBErrorUtility errorCategoryForError:error];
+                
+                if (userErrorCategory == FBErrorCategoryUserCancelled)
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You have cancelled the login operation." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    
+                    [alert show];
+                }
+                else if (userErrorCategory == FBErrorCategoryAuthenticationReopenSession)
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Please Login Again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    
+                    [alert show];
+                }
+                else
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"There is a problem connecting to facebook." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    
+                    [alert show];
+                }
+                
+            }
+            
+            //  [DejalBezelActivityView removeViewAnimated:YES];
+        }
+    }];
+    
+}
 - (IBAction)socialSelfieLoginBtnPressed:(id)sender {
     LoginViewController * loginVC=[[LoginViewController alloc]init];
     [self.navigationController pushViewController:loginVC animated:YES];

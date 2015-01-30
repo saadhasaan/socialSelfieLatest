@@ -45,12 +45,7 @@
 
 @implementation HFViewController
 -(id)init{
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self=[self initWithNibName:@"HFViewController_iPhone" bundle:nil];
-//    }
-//    else{
-        self=[self initWithNibName:@"HFViewController_iPad" bundle:nil];
-//    }
+    self=[self initWithNibName:@"HFViewController_iPhone" bundle:nil];
     if (self) {
         // FBSample logic
         // Call the 'activateApp' method to log an app event for use in analytics and advertising reporting.
