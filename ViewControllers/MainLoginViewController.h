@@ -13,6 +13,7 @@
 #import "FBLogin.h"
 #import "FBUserSelf.h"
 #import "TWLogin.h"
+#import "FacebookManager.h"
 
 @interface MainLoginViewController : UIViewController<FBLoginDelegate,TWLoginDelegate>
 
