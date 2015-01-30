@@ -51,7 +51,7 @@
 #pragma mark:FBLoginDelegate
 -(void)failedToFetchAnyAccount{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-    ShowMessage(kAppName, @"Failed to fetch any Facebook account");
+    ShowMessage(kAppName, @"Please add Facebook account in Seetings.");
 }
 -(void)fbProfileHasBeenFetchedSuccessfullyWithInfo:(FBUserSelf *)fbUser{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
@@ -75,7 +75,7 @@
 }
 -(void)fbProfileDidNotFetched{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-    ShowMessage(kAppName, @"Failed to fetch any Facebook profile");
+    ShowMessage(kAppName, @"Failed to fetch any Facebook profile, please try again and make sure you have added facebook account in settings of phone.");
 }
 #pragma mark: TWLoginDelegate
 -(void)failedToFetchAnyTWAccount{

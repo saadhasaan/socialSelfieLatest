@@ -193,7 +193,6 @@
 		55CEFCC119A8CFDF0092CA6F /* wibiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CEFCBF19A8CFDF0092CA6F /* wibiz@2x.png */; };
 		55DF916619FECEC800DB21DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF916519FECEC800DB21DB /* Default-568h@2x.png */; };
 		55DF917419FED60500DB21DB /* alerts_number_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF916819FED60500DB21DB /* alerts_number_bg@2x.png */; };
-		55DF917519FED60500DB21DB /* back_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF916919FED60500DB21DB /* back_arrow@2x.png */; };
 		55DF917619FED60500DB21DB /* chat_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF916A19FED60500DB21DB /* chat_icon@2x.png */; };
 		55DF917719FED60500DB21DB /* mens_gallery_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF916B19FED60500DB21DB /* mens_gallery_icon@2x.png */; };
 		55DF917819FED60500DB21DB /* my_alerts_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF916C19FED60500DB21DB /* my_alerts_icon@2x.png */; };
@@ -204,7 +203,6 @@
 		55DF917D19FED60500DB21DB /* take_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF917119FED60500DB21DB /* take_photo@2x.png */; };
 		55DF917E19FED60500DB21DB /* upload_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF917219FED60500DB21DB /* upload_photo@2x.png */; };
 		55DF917F19FED60500DB21DB /* womens_gallery_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF917319FED60500DB21DB /* womens_gallery_icon@2x.png */; };
-		55DF918C19FEDC3500DB21DB /* back_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF918119FEDC3500DB21DB /* back_arrow@2x.png */; };
 		55DF918D19FEDC3500DB21DB /* commentes_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF918219FEDC3500DB21DB /* commentes_icon@2x.png */; };
 		55DF918E19FEDC3500DB21DB /* commentes_icon_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF918319FEDC3500DB21DB /* commentes_icon_hover@2x.png */; };
 		55DF918F19FEDC3500DB21DB /* like_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF918419FEDC3500DB21DB /* like_icon@2x.png */; };
@@ -224,7 +222,6 @@
 		55DF91AB19FEE3A100DB21DB /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DF91A819FEE3A100DB21DB /* HMSegmentedControl.m */; };
 		55DF91BA19FEE42600DB21DB /* all_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF91AE19FEE42600DB21DB /* all_btn@2x.png */; };
 		55DF91BB19FEE42600DB21DB /* all_btn_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF91AF19FEE42600DB21DB /* all_btn_pressed@2x.png */; };
-		55DF91BC19FEE42600DB21DB /* back_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF91B019FEE42600DB21DB /* back_arrow@2x.png */; };
 		55DF91BE19FEE42600DB21DB /* devider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF91B219FEE42600DB21DB /* devider@2x.png */; };
 		55DF91C019FEE42600DB21DB /* picture_photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF91B419FEE42600DB21DB /* picture_photos@2x.png */; };
 		55DF91C119FEE42600DB21DB /* recent_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DF91B519FEE42600DB21DB /* recent_btn@2x.png */; };
@@ -545,7 +542,6 @@
 		55CEFCBF19A8CFDF0092CA6F /* wibiz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wibiz@2x.png"; sourceTree = "<group>"; };
 		55DF916519FECEC800DB21DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		55DF916819FED60500DB21DB /* alerts_number_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alerts_number_bg@2x.png"; sourceTree = "<group>"; };
-		55DF916919FED60500DB21DB /* back_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrow@2x.png"; sourceTree = "<group>"; };
 		55DF916A19FED60500DB21DB /* chat_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_icon@2x.png"; sourceTree = "<group>"; };
 		55DF916B19FED60500DB21DB /* mens_gallery_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mens_gallery_icon@2x.png"; sourceTree = "<group>"; };
 		55DF916C19FED60500DB21DB /* my_alerts_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_alerts_icon@2x.png"; sourceTree = "<group>"; };
@@ -556,7 +552,6 @@
 		55DF917119FED60500DB21DB /* take_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take_photo@2x.png"; sourceTree = "<group>"; };
 		55DF917219FED60500DB21DB /* upload_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_photo@2x.png"; sourceTree = "<group>"; };
 		55DF917319FED60500DB21DB /* womens_gallery_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "womens_gallery_icon@2x.png"; sourceTree = "<group>"; };
-		55DF918119FEDC3500DB21DB /* back_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrow@2x.png"; sourceTree = "<group>"; };
 		55DF918219FEDC3500DB21DB /* commentes_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commentes_icon@2x.png"; sourceTree = "<group>"; };
 		55DF918319FEDC3500DB21DB /* commentes_icon_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commentes_icon_hover@2x.png"; sourceTree = "<group>"; };
 		55DF918419FEDC3500DB21DB /* like_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like_icon@2x.png"; sourceTree = "<group>"; };
@@ -579,7 +574,6 @@
 		55DF91A819FEE3A100DB21DB /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		55DF91AE19FEE42600DB21DB /* all_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_btn@2x.png"; sourceTree = "<group>"; };
 		55DF91AF19FEE42600DB21DB /* all_btn_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_btn_pressed@2x.png"; sourceTree = "<group>"; };
-		55DF91B019FEE42600DB21DB /* back_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_arrow@2x.png"; sourceTree = "<group>"; };
 		55DF91B219FEE42600DB21DB /* devider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devider@2x.png"; sourceTree = "<group>"; };
 		55DF91B419FEE42600DB21DB /* picture_photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture_photos@2x.png"; sourceTree = "<group>"; };
 		55DF91B519FEE42600DB21DB /* recent_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recent_btn@2x.png"; sourceTree = "<group>"; };
@@ -1309,7 +1303,6 @@
 			isa = PBXGroup;
 			children = (
 				55DF916819FED60500DB21DB /* alerts_number_bg@2x.png */,
-				55DF916919FED60500DB21DB /* back_arrow@2x.png */,
 				55DF916A19FED60500DB21DB /* chat_icon@2x.png */,
 				55DF916B19FED60500DB21DB /* mens_gallery_icon@2x.png */,
 				55DF916C19FED60500DB21DB /* my_alerts_icon@2x.png */,
@@ -1328,7 +1321,6 @@
 			isa = PBXGroup;
 			children = (
 				55BBE5421A0FBE8B00C64AB3 /* no_pic_background@2x.png */,
-				55DF918119FEDC3500DB21DB /* back_arrow@2x.png */,
 				55DF918219FEDC3500DB21DB /* commentes_icon@2x.png */,
 				55DF918319FEDC3500DB21DB /* commentes_icon_hover@2x.png */,
 				55DF918419FEDC3500DB21DB /* like_icon@2x.png */,
@@ -1370,7 +1362,6 @@
 				55BBE5441A0FC3DD00C64AB3 /* my_photo_commentes_icon@2x.png */,
 				55BBE5451A0FC3DD00C64AB3 /* my_photo_shear_icon@2x.png */,
 				55DF91AF19FEE42600DB21DB /* all_btn_pressed@2x.png */,
-				55DF91B019FEE42600DB21DB /* back_arrow@2x.png */,
 				55DF91B219FEE42600DB21DB /* devider@2x.png */,
 				55DF91B419FEE42600DB21DB /* picture_photos@2x.png */,
 				55DF91B519FEE42600DB21DB /* recent_btn@2x.png */,
@@ -1537,7 +1528,6 @@
 				55682FDA1A001A34000F1142 /* social_button@2x.png in Resources */,
 				55CEFCC119A8CFDF0092CA6F /* wibiz@2x.png in Resources */,
 				55883D5919B22D0B0037D145 /* back-arrow-pressed@2x.png in Resources */,
-				55DF917519FED60500DB21DB /* back_arrow@2x.png in Resources */,
 				55DF91BA19FEE42600DB21DB /* all_btn@2x.png in Resources */,
 				55CEFBC819A8ABF00092CA6F /* InfoPlist.strings in Resources */,
 				55682FE61A0173E6000F1142 /* upload_photo_btn@2x.png in Resources */,
@@ -1614,7 +1604,6 @@
 				790E14861A42F53300236DDB /* check_icon_small@2x.png in Resources */,
 				55CEFC7A19A8ACE50092CA6F /* ActionSheetPickerViewController-iPad.xib in Resources */,
 				55693BCF19F1BE8C00106D17 /* HomeViewController.xib in Resources */,
-				55DF91BC19FEE42600DB21DB /* back_arrow@2x.png in Resources */,
 				55DF919219FEDC3500DB21DB /* my_photo_icon_hover@2x.png in Resources */,
 				553A03161A15473800A6894A /* status_idel@2x.png in Resources */,
 				55CEFCA119A8ACE50092CA6F /* egopv_right.png in Resources */,
@@ -1647,7 +1636,6 @@
 				55883D5A19B22D0B0037D145 /* back-arrow.png in Resources */,
 				55883D5B19B22D0B0037D145 /* back-arrow@2x.png in Resources */,
 				553A030F1A15473800A6894A /* friend_pic_fram@2x.png in Resources */,
-				55DF918C19FEDC3500DB21DB /* back_arrow@2x.png in Resources */,
 				55883D5F19B22D0B0037D145 /* signin-button-pressed@2x.png in Resources */,
 				55BBE5471A0FC3DD00C64AB3 /* my_photo_shear_icon@2x.png in Resources */,
 				55DF917919FED60500DB21DB /* my_photos@2x.png in Resources */,
@@ -1887,9 +1875,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialSelfie/SocialSelfie-Prefix.pch";
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "547634fe-8a88-4139-a969-cea1624d02b4";
+				PROVISIONING_PROFILE = "6b068e4f-52b0-4997-ab62-6ba457c84a9a";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1903,9 +1891,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialSelfie/SocialSelfie-Prefix.pch";
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "547634fe-8a88-4139-a969-cea1624d02b4";
+				PROVISIONING_PROFILE = "6b068e4f-52b0-4997-ab62-6ba457c84a9a";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
