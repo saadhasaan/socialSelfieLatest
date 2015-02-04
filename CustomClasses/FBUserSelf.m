@@ -9,6 +9,12 @@
 #import "FBUserSelf.h"
 
 @implementation FBUserSelf
+-(FBUserSelf *)init{
+    self=[super init];
+    if (self) {
+    }
+    return self;
+}
 -(FBUserSelf*) initWithDictionary:(NSDictionary*)dict
 {
     self = [super init];

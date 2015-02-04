@@ -14,6 +14,7 @@
 #import "HomeViewController.h"
 #import "SocialSelfieAppDelegate.h"
 #import "HFViewController.h"
+#import "FBUser.h"
 
 #define facebookKey @"1492084591036761"
 @interface MainLoginViewController (){
@@ -104,7 +105,6 @@
     if (fbUser.email) {
         SaveStringWithKey(fbUser.email, kEmail);
     }
-
 }
 -(void)twProfileDidNotFetched{
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
@@ -162,9 +162,42 @@
                 
                 if (error == nil)
                 {
-
+                    FBUserSelf * fbUserSelf=[[FBUserSelf alloc]init];
+                    if (user.email) {
+                        fbUserSelf.userName=user.email;
+                        SaveStringWithKey(user.email, kUserName);
+                    }
+                    else{
+                        fbUserSelf.email=@"No Username";
+                        SaveStringWithKey(@"No Username", kUserName);
+                    }
+                    if (user.imgUrl) {
+                        fbUserSelf.profileImageURL=user.imgUrl;
+                        SaveStringWithKey(user.imgUrl, kProfileImage);
+                    }
+                    else{
+                        fbUserSelf.profileImageURL=@"";
+                        SaveStringWithKey(@"", kProfileImage);
+                    }
+                    if(user.name){
+                        fbUserSelf.userName=user.name;
+                        SaveStringWithKey(user.name, kName);
+                    }
+                    else{
+                        fbUserSelf.userName=@"No Name";
+                        SaveStringWithKey(@"No Name", kName);
+                    }
+                    if (user.email) {
+                        fbUserSelf.email=user.email;
+                        SaveStringWithKey(user.email, kEmail);
+                    }
+                    else{
+                        fbUserSelf.email=@"No Email";
+                        SaveStringWithKey(@"No Email", kEmail);
+                    }
 //                    customerInfo.facebookID = user.fId;
 //                    customerInfo.facebookName = [self.fbManager getName];
+                    [self facebookLoginWebserviceWithFBUser:fbUserSelf];
                 }
                 
             }];
