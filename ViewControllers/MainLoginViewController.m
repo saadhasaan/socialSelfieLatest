@@ -163,6 +163,20 @@
                 if (error == nil)
                 {
                     FBUserSelf * fbUserSelf=[[FBUserSelf alloc]init];
+                    if (user.fId) {
+                        fbUserSelf.fbiD=user.fId;
+                        SaveStringWithKey(user.fId, kFBID);
+                    }
+                    else{
+                        fbUserSelf.fbiD=@"No ID";
+                        SaveStringWithKey(@"No ID", kFBID);
+                    }
+                    if (user.firstName) {
+                        fbUserSelf.firstName=user.firstName;
+                    }
+                    if (user.lastName) {
+                        fbUserSelf.lastName=user.lastName;
+                    }
                     if (user.email) {
                         fbUserSelf.userName=user.email;
                         SaveStringWithKey(user.email, kUserName);
@@ -269,8 +283,12 @@
 -(void)facebookLoginWebserviceWithFBUser:(FBUserSelf * )fbUser{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    
-    [params setObject:fbUser.firstName forKey:kName];
+    if(fbUser.firstName){
+        [params setObject:fbUser.firstName forKey:kName];
+    }
+    else{
+        [params setObject:fbUser.userName forKey:kName];
+    }
     [params setObject:fbUser.fbiD forKey:kFBID];
     if (fbUser.gender) {
         [params setObject:fbUser.gender forKey:kGender];

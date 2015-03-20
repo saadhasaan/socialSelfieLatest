@@ -244,6 +244,8 @@
 		55EEF4A81A559C7E00186BFB /* WomenGallerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EEF4A51A559C7E00186BFB /* WomenGallerVC.xib */; };
 		55EEF4A91A559C7E00186BFB /* WomenGallerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EEF4A61A559C7E00186BFB /* WomenGallerVC.m */; };
 		55EEF4AB1A55C7E100186BFB /* hart_pressed_state@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EEF4AA1A55C7E000186BFB /* hart_pressed_state@2x.png */; };
+		7905FEA81A94B745000F3C64 /* TermsAndContionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7905FEA61A94B745000F3C64 /* TermsAndContionsVC.m */; };
+		7905FEA91A94B745000F3C64 /* TermsAndContionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7905FEA71A94B745000F3C64 /* TermsAndContionsVC.xib */; };
 		790E147B1A42F4C900236DDB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790E14791A42F4C900236DDB /* SettingsViewController.m */; };
 		790E147C1A42F4C900236DDB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790E147A1A42F4C900236DDB /* SettingsViewController.xib */; };
 		790E14851A42F53300236DDB /* check_icon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790E147E1A42F53300236DDB /* check_icon_large@2x.png */; };
@@ -623,6 +625,9 @@
 		55EEF4A61A559C7E00186BFB /* WomenGallerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WomenGallerVC.m; sourceTree = "<group>"; };
 		55EEF4A71A559C7E00186BFB /* WomenGallerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WomenGallerVC.h; sourceTree = "<group>"; };
 		55EEF4AA1A55C7E000186BFB /* hart_pressed_state@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hart_pressed_state@2x.png"; sourceTree = "<group>"; };
+		7905FEA51A94B745000F3C64 /* TermsAndContionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndContionsVC.h; sourceTree = "<group>"; };
+		7905FEA61A94B745000F3C64 /* TermsAndContionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndContionsVC.m; sourceTree = "<group>"; };
+		7905FEA71A94B745000F3C64 /* TermsAndContionsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsAndContionsVC.xib; sourceTree = "<group>"; };
 		790E14781A42F4C900236DDB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		790E14791A42F4C900236DDB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		790E147A1A42F4C900236DDB /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -1277,6 +1282,9 @@
 				55883D7219B232680037D145 /* SignupViewController.h */,
 				55883D7319B232680037D145 /* SignupViewController.m */,
 				55883D7419B232680037D145 /* SignupViewController.xib */,
+				7905FEA51A94B745000F3C64 /* TermsAndContionsVC.h */,
+				7905FEA61A94B745000F3C64 /* TermsAndContionsVC.m */,
+				7905FEA71A94B745000F3C64 /* TermsAndContionsVC.xib */,
 				559B2A2F19B303EC00FB0BF9 /* BaseViewController.h */,
 				559B2A3019B303EC00FB0BF9 /* BaseViewController.m */,
 				55693BCB19F1BE8C00106D17 /* HomeViewController.h */,
@@ -1573,6 +1581,7 @@
 				55DF91C519FEE42600DB21DB /* yesterday_btn_pressed@2x.png in Resources */,
 				55CEFCB919A8AD580092CA6F /* CenterMainViewController.xib in Resources */,
 				55DF91CE19FEEF4700DB21DB /* check_btn@2x.png in Resources */,
+				7905FEA91A94B745000F3C64 /* TermsAndContionsVC.xib in Resources */,
 				55DF917D19FED60500DB21DB /* take_photo@2x.png in Resources */,
 				795875541A7A034F008E6505 /* Project-Release.xcconfig in Resources */,
 				55CEFC9B19A8ACE50092CA6F /* egopv_fullscreen_button@2x.png in Resources */,
@@ -1758,6 +1767,7 @@
 				553A02FC1A153A1A00A6894A /* FriendCell.m in Sources */,
 				556FCFF11A02D6B200634508 /* AFImagePager.m in Sources */,
 				55682FE01A017367000F1142 /* UploadPhotoViewController.m in Sources */,
+				7905FEA81A94B745000F3C64 /* TermsAndContionsVC.m in Sources */,
 				55CEFC8219A8ACE50092CA6F /* AFHTTPSessionManager.m in Sources */,
 				55CEFC7719A8ACE50092CA6F /* ActionSheetDatePicker.m in Sources */,
 				55CEFC8319A8ACE50092CA6F /* AFNetworkReachabilityManager.m in Sources */,
@@ -1945,7 +1955,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Junaid Ahmed (4KKW56E4P2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Junaid Ahmed (28HPMVWS4U)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1955,7 +1965,7 @@
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6b068e4f-52b0-4997-ab62-6ba457c84a9a";
+				PROVISIONING_PROFILE = "547634fe-8a88-4139-a969-cea1624d02b4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1965,7 +1975,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Junaid Ahmed (4KKW56E4P2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Junaid Ahmed (28HPMVWS4U)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1975,7 +1985,7 @@
 				INFOPLIST_FILE = "SocialSelfie/SocialSelfie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6b068e4f-52b0-4997-ab62-6ba457c84a9a";
+				PROVISIONING_PROFILE = "547634fe-8a88-4139-a969-cea1624d02b4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "HomeViewController.h"
 #import "SocialSelfieAppDelegate.h"
+#import "TermsAndContionsVC.h"
 
 @interface SignupViewController ()
 {
@@ -35,7 +36,7 @@
     if (self) {
         isFemalePressed=NO;
         isMalePressed=YES;
-        isTermsPressed=YES;
+        isTermsPressed=NO;
         isPictureAdded=NO;
         appDelegate=(SocialSelfieAppDelegate *)[UIApplication sharedApplication].delegate;
     }
@@ -48,7 +49,7 @@
     scrollView.scrollEnabled=YES;
     scrollView.contentSize=CGSizeMake(scrollView.frame.size.width,self.signUpBtn.frame.origin.y + self.signUpBtn.frame.size.height + 50);
     
-    [UtilsFunctions makeUIImageViewRound:self.profileImg ANDRadius:2];
+    [UtilsFunctions makeUIImageViewRound:self.profileImg ANDRadius:5];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,11 +82,13 @@
 
 - (IBAction)termsBtnAction:(id)sender {
     if(isTermsPressed){
-        [termsBtn setImage:[UIImage imageNamed:@"check_btn"] forState:UIControlStateNormal];
+        [termsBtn setSelected:NO];
         isTermsPressed=NO;
     }
     else{
-        [termsBtn setImage:[UIImage imageNamed:@"check_btn_blank"] forState:UIControlStateNormal];
+        TermsAndContionsVC * termsVC=[[TermsAndContionsVC alloc]initWithUrl:@"http://www.junzyapps.com/terms-of-service/"];
+        [self.navigationController pushViewController:termsVC animated:YES];
+        [termsBtn setSelected:YES];
         isTermsPressed=YES;
     }
 }
@@ -120,7 +123,7 @@
         if ([self.passwordTF.text length]>0) {
             if ([self.fullNameTF.text length]>0) {
                 if ([self.emailTF.text length]>0) {
-                    if ([self.countryTF.text length]>0) {
+//                    if ([self.countryTF.text length]>0) {
                         if (isTermsPressed) {
                             if (isPictureAdded) {
                                 [self signUpWebservice];
@@ -132,10 +135,10 @@
                         else{
                             ShowMessage(kAppName, @"Please accept terms and conditions.");
                         }
-                    }
-                    else{
-                        ShowMessage(kAppName, @"Please enter country name.");
-                    }
+//                    }
+//                    else{
+//                        ShowMessage(kAppName, @"Please enter country name.");
+//                    }
                 }
                 else{
                     ShowMessage(kAppName, @"Please enter email.");
@@ -196,6 +199,7 @@
         self.profileImg.image=chosenImage;
     }
     isPictureAdded=YES;
+    [UtilsFunctions makeUIImageViewRound:self.profileImg ANDRadius:5];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -212,7 +216,12 @@
     [params setObject:self.passwordTF.text forKey:kPassword];
     [params setObject:self.fullNameTF.text forKey:kName];
     [params setObject:self.emailTF.text forKey:kEmail];
-    [params setObject:self.countryTF.text forKey:kCountry];
+    if (self.countryTF.text.length) {
+        [params setObject:self.countryTF.text forKey:kCountry];
+    }
+    else{
+        [params setObject:@"Not Provided" forKey:kCountry];
+    }
     [params setObject:@"1234556" forKey:kPhone];
     if (isMalePressed) {
         [params setObject:@"male" forKey:kGender];

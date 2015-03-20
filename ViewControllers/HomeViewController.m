@@ -35,7 +35,7 @@
     self = [super initWithNibName:@"HomeViewController" bundle:nil];
     if (self) {
         mainArray=[[NSMutableArray alloc]init];
-        imgIconArray=[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:@"mens_gallery_icon",@"womens_gallery_icon",@"upload_photo",@"take_photo",@"my_photos",@"my_profile",@"my_alerts_icon",@"settings_icon", nil]];//,@"chat_icon"
+        imgIconArray=[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:@"mens_gallery_icon",@"upload_photo",@"take_photo",@"my_photos",@"my_profile",@"my_alerts_icon",@"settings_icon", nil]];//,@"chat_icon"@"womens_gallery_icon",
         appDelegate=(SocialSelfieAppDelegate*)[UIApplication sharedApplication].delegate;
     }
     return self;
@@ -68,8 +68,8 @@
 }
 -(void)loadMainArray{
     [mainArray removeAllObjects];
-    [mainArray addObject:kMenGallery];
-    [mainArray addObject:kWomenGallery];
+    [mainArray addObject:@"Gallery"];
+//    [mainArray addObject:kWomenGallery];
     [mainArray addObject:kUploadPhoto];
     [mainArray addObject:kTakePhoto];
     [mainArray addObject:kMyPhoto];
@@ -106,7 +106,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%li",(long)indexPath.row);
-    if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kMenGallery]){
+    if([[mainArray objectAtIndex:indexPath.row]isEqualToString:@"Gallery"]){
         MensGalleryViewController * mensGalleryVC=[[MensGalleryViewController alloc]init];
         [self.navigationController pushViewController:mensGalleryVC animated:YES];
     }

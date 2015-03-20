@@ -138,11 +138,13 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U5z-iD-R7y">
-                            <rect key="frame" x="54" y="417" width="22" height="22"/>
+                            <rect key="frame" x="50" y="414" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="check_btn.png">
+                            <state key="normal" image="check_btn_blank.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" image="check_btn.png"/>
+                            <state key="highlighted" image="check_btn.png"/>
                             <connections>
                                 <action selector="termsBtnAction:" destination="-1" eventType="touchUpInside" id="lVQ-yV-MwO"/>
                             </connections>
@@ -169,7 +171,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parallax_avatar.png" id="sxT-yc-u7c">
-                            <rect key="frame" x="107" y="10" width="104" height="104"/>
+                            <rect key="frame" x="107" y="10" width="103" height="103"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZJ5-JR-v2H">
