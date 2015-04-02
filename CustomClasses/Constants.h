@@ -39,8 +39,8 @@
 #define kTaskDisableFriendRequest   @"disableFriendRequest"
 #define kTaskReportUser             @"reportUser"
 
-#define kMenGallery     @"Gallery"
-#define kWomenGallery   @"Womens Gallery"
+//#define kMenGallery     @"Gallery"
+//#define kWomenGallery   @"Womens Gallery"
 #define kUploadPhoto    @"Upload Photo"
 #define kTakePhoto      @"Take a Photo"
 #define kMyPhoto        @"My Photos"

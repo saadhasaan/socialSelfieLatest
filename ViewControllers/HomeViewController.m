@@ -110,10 +110,10 @@
         MensGalleryViewController * mensGalleryVC=[[MensGalleryViewController alloc]init];
         [self.navigationController pushViewController:mensGalleryVC animated:YES];
     }
-    else if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kWomenGallery]){
-        WomenGallerVC * womensGalleryVC=[[WomenGallerVC alloc]init];
-        [self.navigationController pushViewController:womensGalleryVC animated:YES];
-    }
+//    else if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kWomenGallery]){
+//        WomenGallerVC * womensGalleryVC=[[WomenGallerVC alloc]init];
+//        [self.navigationController pushViewController:womensGalleryVC animated:YES];
+//    }
     else if([[mainArray objectAtIndex:indexPath.row]isEqualToString:kMyProfile]){
         MyProfileViewController * myProfileVC=[[MyProfileViewController alloc]init];
         [self.navigationController pushViewController:myProfileVC animated:YES];
